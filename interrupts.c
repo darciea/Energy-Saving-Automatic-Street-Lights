@@ -35,3 +35,11 @@ void __interrupt(high_priority) HighISR()
     //}
 }
 
+void __interrupt(high_priority) HighISR()
+{
+    if(TMR0IF){ 					//check the interrupt source (timer)
+        hour ++;                    //increment hour counter by 1
+        if (hour==24){hour=0;}      //if we reach the end of the day, reset day count to 0
+        TMR0IF=0; 	//clear the interrupt flag from timer
+    }
+}
