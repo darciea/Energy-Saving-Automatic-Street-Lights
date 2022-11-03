@@ -30,8 +30,8 @@ void __interrupt(high_priority) HighISR()
     }
     
     //if (PIR0bits.TMR0IF) {
-    //    LATHbits.LATH3=!LATHbits.LATH3;
-    //    PIR0bits.TMR0IF=0; //clear the interrupt flag
+     //   LATHbits.LATH3=!LATHbits.LATH3;
+      //  PIR0bits.TMR0IF=0; //clear the interrupt flag
     //}
 }
 
