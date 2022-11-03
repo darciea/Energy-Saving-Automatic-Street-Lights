@@ -24249,6 +24249,8 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 
+
+int hour;
 void Interrupts_init(void)
 {
 
@@ -24265,20 +24267,15 @@ void Interrupts_init(void)
 
 
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void __attribute__((picinterrupt(("high_priority")))) HISR()
 {
 
-    if (PIR2bits.C1IF){
-        LATHbits.LATH3=!LATHbits.LATH3;
-        PIR2bits.C1IF=0;
-    }
 
     if (PIR0bits.TMR0IF) {
         hour++;
-        if (hour==24){hour=0;}
+
         PIR0bits.TMR0IF=0;
     }
-
 
 
 

@@ -14,7 +14,7 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-int hour;
+//int hour = 1 ;
 //int *ptrhour = 
 
 void main(void) {
@@ -25,13 +25,14 @@ void main(void) {
    //DAC_init(); 
    ADC_init();
    Comp1_init();
+   int hour =1;
    Interrupts_init();
    Light_init();
    
-   hour = 1;
-    
+   
+   
     while (1) {
-           LEDarray_disp_bin(hour);
+           LEDarray_disp_bin(5);
            
     }
 }

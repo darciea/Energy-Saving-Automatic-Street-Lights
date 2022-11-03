@@ -2001,11 +2001,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 ../main.c
-[; ;../main.c: 17: int hour;
-[v _hour `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"20
+"20 ../main.c
 [; ;../main.c: 20: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
@@ -2024,28 +2021,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 27:    Comp1_init();
 [e ( _Comp1_init ..  ]
 "28
-[; ;../main.c: 28:    Interrupts_init();
-[e ( _Interrupts_init ..  ]
-"29
-[; ;../main.c: 29:    Light_init();
-[e ( _Light_init ..  ]
-"31
-[; ;../main.c: 31:    hour = 1;
+[; ;../main.c: 28:    int hour =1;
+[v _hour `i ~T0 @X0 1 a ]
 [e = _hour -> 1 `i ]
-"33
-[; ;../main.c: 33:     while (1) {
+"29
+[; ;../main.c: 29:    Interrupts_init();
+[e ( _Interrupts_init ..  ]
+"30
+[; ;../main.c: 30:    Light_init();
+[e ( _Light_init ..  ]
+"34
+[; ;../main.c: 34:     while (1) {
 [e :U 2017 ]
 {
-"34
-[; ;../main.c: 34:            LEDarray_disp_bin(hour);
-[e ( _LEDarray_disp_bin (1 -> _hour `ui ]
-"36
-[; ;../main.c: 36:     }
+"35
+[; ;../main.c: 35:            LEDarray_disp_bin(5);
+[e ( _LEDarray_disp_bin (1 -> -> 5 `i `ui ]
+"37
+[; ;../main.c: 37:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"37
-[; ;../main.c: 37: }
+"38
+[; ;../main.c: 38: }
 [e :UE 2015 ]
 }

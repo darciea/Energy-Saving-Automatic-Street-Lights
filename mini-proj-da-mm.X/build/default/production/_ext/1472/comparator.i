@@ -24251,7 +24251,7 @@ void Light_init(void);
 
 void Light_init(void)
 {
-   LATHbits.LATH3=0;
+   LATHbits.LATH3=1;
    TRISHbits.TRISH3=0;
 }
 

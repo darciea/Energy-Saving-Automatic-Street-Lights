@@ -5,7 +5,9 @@
  * Function to turn on interrupts and set if priority is used
  * Note you also need to enable peripheral interrupts in the INTCON register to use CM1IE.
 ************************************/
-//int hour = 0;
+
+
+int hour;
 void Interrupts_init(void)
 {
 	// turn on global interrupts, peripheral interrupts and the interrupt source
@@ -22,30 +24,22 @@ void Interrupts_init(void)
  * High priority interrupt service routine
  * Make sure all enabled interrupts are checked and flags cleared
 ************************************/
-void __interrupt(high_priority) HighISR()
+void __interrupt(high_priority) HISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
+    
+    if (PIR0bits.TMR0IF) {
+        hour++;   //increment hour counter by 1
+        //if (hour==24){hour=0;}      //if we reach the end of the day, reset day count to 0
+        PIR0bits.TMR0IF=0; //clear the interrupt flag
+    }
+    /*
     if (PIR2bits.C1IF){ //check the interrupt source
         LATHbits.LATH3=!LATHbits.LATH3;
         PIR2bits.C1IF=0; //clear the interrupt flag
     }
-    
-    if (PIR0bits.TMR0IF) {
-        hour++;                    //increment hour counter by 1
-        if (hour==24){hour=0;}      //if we reach the end of the day, reset day count to 0
-        PIR0bits.TMR0IF=0; //clear the interrupt flag
-    }
-    
-    /*if(TMR0IF){ 					//check the interrupt source (timer)
-        
-        TMR0IF=0; 	//clear the interrupt flag from timer
-     
-    }*/
-    
+    */
 }
-
-//void __interrupt(high_priority) HighISR()
-//{
     
-//}
+
 
