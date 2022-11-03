@@ -13,11 +13,13 @@
 #include "ADC.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-int hour = 5;
+
+int hour;
+//int *ptrhour = 
 
 void main(void) {
 	//call your initialisation functions to set up the hardware modules 
-    
+   
    LEDarray_init();
    Timer0_init();
    //DAC_init(); 
@@ -25,6 +27,8 @@ void main(void) {
    Comp1_init();
    Interrupts_init();
    Light_init();
+   
+   hour = 1;
     
     while (1) {
            LEDarray_disp_bin(hour);

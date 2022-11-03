@@ -24306,7 +24306,9 @@ unsigned int ADC_getval(void);
 
 
 
-int hour = 5;
+
+int hour;
+
 
 void main(void) {
 
@@ -24318,6 +24320,8 @@ void main(void) {
    Comp1_init();
    Interrupts_init();
    Light_init();
+
+   hour = 1;
 
     while (1) {
            LEDarray_disp_bin(hour);
