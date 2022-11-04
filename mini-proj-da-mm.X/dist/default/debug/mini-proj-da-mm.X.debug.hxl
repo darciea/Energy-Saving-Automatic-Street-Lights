@@ -1,31 +1,31 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- dist/default/production\mini-proj-da-mm.X.production.hex
- -Odist/default/production\mini-proj-da-mm.X.production.hex
- -logfile=dist/default/production\mini-proj-da-mm.X.production.hxl
+ dist/default/debug\mini-proj-da-mm.X.debug.hex
+ -Odist/default/debug\mini-proj-da-mm.X.debug.hex
+ -logfile=dist/default/debug\mini-proj-da-mm.X.debug.hxl
  -addressing=1
  -break=300000
 
 ### Memory Usage ###
  Intel Hex-file ranges:
-  0h - 3h		(dist/default/production\mini-proj-da-mm.X.production.hex)
-  8h - 22Dh		(dist/default/production\mini-proj-da-mm.X.production.hex)
-  200000h - 20000Fh		(dist/default/production\mini-proj-da-mm.X.production.hex)
-  300000h - 30000Bh		(dist/default/production\mini-proj-da-mm.X.production.hex)
+  0h - 5h		(dist/default/debug\mini-proj-da-mm.X.debug.hex)
+  8h - 22Dh		(dist/default/debug\mini-proj-da-mm.X.debug.hex)
+  200000h - 20000Fh		(dist/default/debug\mini-proj-da-mm.X.debug.hex)
+  300000h - 30000Bh		(dist/default/debug\mini-proj-da-mm.X.debug.hex)
  Unused ranges:
-  4h - 7h
+  6h - 7h
   22Eh - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Intel Hex-file         (dist/default/production\mini-proj-da-mm.X.production.hex)
+  H1 = Intel Hex-file         (dist/default/debug\mini-proj-da-mm.X.debug.hex)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+00000000 | H1 H1 H1 H1 H1 H1 -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

@@ -1,45 +1,42 @@
 #include <xc.h>
 #include "interrupts.h"
 
+//global variable 'hour' defined in interrupts.h
+
 /************************************
  * Function to turn on interrupts and set if priority is used
  * Note you also need to enable peripheral interrupts in the INTCON register to use CM1IE.
 ************************************/
 
-
-int hour;
 void Interrupts_init(void)
 {
 	// turn on global interrupts, peripheral interrupts and the interrupt source
-    PIE2bits.C1IE=1; 	//enable interrupt source comparator 1
-    IPR2bits.C1IP=1; //high priority
-    INTCONbits.PEIE=1; //turn on peripheral interrupts
-    INTCONbits.GIE=1; 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
-	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
-    //PIE0bits.TMR0IE=1;
-    //IPR0bits.TMR0IP=1;
+    TMR0IE=1; //enable interrupts from timer
+    INTCONbits.GIEH=1; 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
+    INTCONbits.GIEL = 1; // Peripheral Interrupt Enable bit
 }
 
 /************************************
  * High priority interrupt service routine
  * Make sure all enabled interrupts are checked and flags cleared
 ************************************/
-void __interrupt(high_priority) HISR()
+void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
     
-    if (PIR0bits.TMR0IF) {
-        hour++;   //increment hour counter by 1
-        //if (hour==24){hour=0;}      //if we reach the end of the day, reset day count to 0
-        PIR0bits.TMR0IF=0; //clear the interrupt flag
+    if (TMR0IF) { //check interrupt source - timer
+        TMR0H=0b00001011;            //TMR0H:TMR0L so that the entire value is 3035
+        TMR0L=0b00001011;  //start at 3035 as that is the discrepancy between 1:244 and 1:256
+        hour += 1;
+        if (hour==24) {hour=0;}
+        TMR0IF=0; //clear the interrupt flag
     }
-    /*
-    if (PIR2bits.C1IF){ //check the interrupt source
+    
+    if (PIR2bits.C1IF){ //check the interrupt source - comparator
         LATHbits.LATH3=!LATHbits.LATH3;
         PIR2bits.C1IF=0; //clear the interrupt flag
     }
-    */
 }
-    
 
 
+ 

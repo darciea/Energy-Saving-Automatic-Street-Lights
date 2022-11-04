@@ -8,5 +8,7 @@
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 
+unsigned int hour = 0;
+
 
 #endif
