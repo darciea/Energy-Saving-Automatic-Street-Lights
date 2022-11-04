@@ -14,7 +14,8 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-//global variable 'hour' defined in interrupts.h
+//global variable 'minute' defined in interrupts.h
+
 
 void main(void) {
 
@@ -27,6 +28,13 @@ void main(void) {
     ADC_init();
     
     while(1){
+        
+        if (minute == 60) {
+            hour++;
+            minute = 0;
+            if (hour == 24){hour = 0;}
+        }
+        
         LEDarray_disp_bin(hour); //display current timer value (most significant bits only) on LED array
     }
 }

@@ -2002,53 +2002,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 0;
+[; ;../interrupts.h: 11: unsigned int minute = 0;
+[v _minute `ui ~T0 @X0 1 e ]
+[i _minute
+-> -> 0 `i `ui
+]
+"12
+[; ;../interrupts.h: 12: unsigned int hour = 0;
 [v _hour `ui ~T0 @X0 1 e ]
 [i _hour
 -> -> 0 `i `ui
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"19 ../main.c
-[; ;../main.c: 19: void main(void) {
+"20 ../main.c
+[; ;../main.c: 20: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"21
-[; ;../main.c: 21:     Timer0_init();
-[e ( _Timer0_init ..  ]
 "22
-[; ;../main.c: 22:     LEDarray_init();
-[e ( _LEDarray_init ..  ]
+[; ;../main.c: 22:     Timer0_init();
+[e ( _Timer0_init ..  ]
 "23
-[; ;../main.c: 23:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
-"24
-[; ;../main.c: 24:     LEDarray_init();
+[; ;../main.c: 23:     LEDarray_init();
 [e ( _LEDarray_init ..  ]
+"24
+[; ;../main.c: 24:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
 "25
-[; ;../main.c: 25:     Comp1_init();
-[e ( _Comp1_init ..  ]
+[; ;../main.c: 25:     LEDarray_init();
+[e ( _LEDarray_init ..  ]
 "26
-[; ;../main.c: 26:     Light_init();
-[e ( _Light_init ..  ]
+[; ;../main.c: 26:     Comp1_init();
+[e ( _Comp1_init ..  ]
 "27
-[; ;../main.c: 27:     ADC_init();
+[; ;../main.c: 27:     Light_init();
+[e ( _Light_init ..  ]
+"28
+[; ;../main.c: 28:     ADC_init();
 [e ( _ADC_init ..  ]
-"29
-[; ;../main.c: 29:     while(1){
+"30
+[; ;../main.c: 30:     while(1){
 [e :U 2017 ]
 {
-"30
-[; ;../main.c: 30:         LEDarray_disp_bin(hour);
+"32
+[; ;../main.c: 32:         if (minute == 60) {
+[e $ ! == _minute -> -> 60 `i `ui 2019  ]
+{
+"33
+[; ;../main.c: 33:             hour++;
+[e ++ _hour -> -> 1 `i `ui ]
+"34
+[; ;../main.c: 34:             minute = 0;
+[e = _minute -> -> 0 `i `ui ]
+"35
+[; ;../main.c: 35:             if (hour == 24){hour = 0;}
+[e $ ! == _hour -> -> 24 `i `ui 2020  ]
+{
+[e = _hour -> -> 0 `i `ui ]
+}
+[e :U 2020 ]
+"36
+[; ;../main.c: 36:         }
+}
+[e :U 2019 ]
+"38
+[; ;../main.c: 38:         LEDarray_disp_bin(hour);
 [e ( _LEDarray_disp_bin (1 _hour ]
-"31
-[; ;../main.c: 31:     }
+"39
+[; ;../main.c: 39:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"32
-[; ;../main.c: 32: }
+"40
+[; ;../main.c: 40: }
 [e :UE 2015 ]
 }

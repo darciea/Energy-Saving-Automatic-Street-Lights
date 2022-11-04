@@ -24242,6 +24242,7 @@ unsigned char __t3rd16on(void);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
+unsigned int minute = 0;
 unsigned int hour = 0;
 # 2 "../interrupts.c" 2
 # 11 "../interrupts.c"
@@ -24264,13 +24265,15 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
     if (TMR0IF) {
         TMR0H=0b00001011;
         TMR0L=0b00001011;
-        hour += 1;
-        if (hour==24) {hour=0;}
+        minute += 1;
+
         TMR0IF=0;
     }
 
     if (PIR2bits.C1IF){
-        LATHbits.LATH3=!LATHbits.LATH3;
+        if (hour <1 || hour >=5){
+            LATHbits.LATH3=!LATHbits.LATH3;
+        }
         PIR2bits.C1IF=0;
     }
 }

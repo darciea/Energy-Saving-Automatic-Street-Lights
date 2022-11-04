@@ -2053,7 +2053,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 0;
+[; ;../interrupts.h: 11: unsigned int minute = 0;
+[v _minute `ui ~T0 @X0 1 e ]
+[i _minute
+-> -> 0 `i `ui
+]
+"12
+[; ;../interrupts.h: 12: unsigned int hour = 0;
 [v _hour `ui ~T0 @X0 1 e ]
 [i _hour
 -> -> 0 `i `ui
@@ -2099,15 +2105,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../interrupts.c: 29:         TMR0L=0b00001011;
 [e = _TMR0L -> -> 11 `i `uc ]
 "30
-[; ;../interrupts.c: 30:         hour += 1;
-[e =+ _hour -> -> 1 `i `ui ]
-"31
-[; ;../interrupts.c: 31:         if (hour==24) {hour=0;}
-[e $ ! == _hour -> -> 24 `i `ui 2018  ]
-{
-[e = _hour -> -> 0 `i `ui ]
-}
-[e :U 2018 ]
+[; ;../interrupts.c: 30:         minute += 1;
+[e =+ _minute -> -> 1 `i `ui ]
 "32
 [; ;../interrupts.c: 32:         TMR0IF=0;
 [e = _TMR0IF -> -> 0 `i `b ]
@@ -2117,19 +2116,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2017 ]
 "35
 [; ;../interrupts.c: 35:     if (PIR2bits.C1IF){
-[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2019  ]
+[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2018  ]
 {
 "36
-[; ;../interrupts.c: 36:         LATHbits.LATH3=!LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+[; ;../interrupts.c: 36:         if (hour <1 || hour >=5){
+[e $ ! || < _hour -> -> 1 `i `ui >= _hour -> -> 5 `i `ui 2019  ]
+{
 "37
-[; ;../interrupts.c: 37:         PIR2bits.C1IF=0;
-[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+[; ;../interrupts.c: 37:             LATHbits.LATH3=!LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 "38
-[; ;../interrupts.c: 38:     }
+[; ;../interrupts.c: 38:         }
 }
 [e :U 2019 ]
 "39
-[; ;../interrupts.c: 39: }
+[; ;../interrupts.c: 39:         PIR2bits.C1IF=0;
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+"40
+[; ;../interrupts.c: 40:     }
+}
+[e :U 2018 ]
+"41
+[; ;../interrupts.c: 41: }
 [e :UE 2016 ]
 }

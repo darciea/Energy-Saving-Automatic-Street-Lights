@@ -8,6 +8,7 @@
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 
+unsigned int minute = 0;
 unsigned int hour = 0;
 
 

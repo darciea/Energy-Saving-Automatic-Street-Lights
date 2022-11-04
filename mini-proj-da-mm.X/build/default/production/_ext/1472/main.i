@@ -24266,6 +24266,7 @@ void LEDarray_disp_PPM(unsigned int number, unsigned int max);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
+unsigned int minute = 0;
 unsigned int hour = 0;
 # 10 "../main.c" 2
 
@@ -24311,6 +24312,7 @@ unsigned int ADC_getval(void);
 
 
 
+
 void main(void) {
 
     Timer0_init();
@@ -24322,6 +24324,13 @@ void main(void) {
     ADC_init();
 
     while(1){
+
+        if (minute == 60) {
+            hour++;
+            minute = 0;
+            if (hour == 24){hour = 0;}
+        }
+
         LEDarray_disp_bin(hour);
     }
 }
