@@ -1,4 +1,4 @@
-# 1 "../main.c"
+# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../main.c" 2
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTE = OFF
-
-
+# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24237,163 +24229,285 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 8 "../main.c" 2
+# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
 
-# 1 "../LEDarray.h" 1
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
 
 
 
 
 
+typedef void * va_list[1];
 
 
 
-void LEDarray_init(void);
-void RF2button_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_PPM(unsigned int number, unsigned int max);
-# 9 "../main.c" 2
 
-# 1 "../interrupts.h" 1
+typedef void * __isoc_va_list[1];
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
 
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
 
 
 
 
 
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
 
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
+int remove(const char *);
+int rename(const char *, const char *);
 
-unsigned int hour = 0;
-unsigned int minute = 0;
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
 
-unsigned int current_day_hour = 0;
-unsigned int current_day_min = 0;
-unsigned int daylight_start_hour = 0;
-unsigned int daylight_start_min = 0;
-unsigned int daylight_end_hour = 0;
-unsigned int daylight_end_min = 0;
-unsigned int calculated_solar_noon_hour;
-unsigned int calculated_solar_noon_min;
-# 10 "../main.c" 2
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
 
-# 1 "../comparator.h" 1
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
 
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
 
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
 
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
 
+char *fgets(char *restrict, int, FILE *restrict);
 
+char *gets(char *);
 
 
-void DAC_init(void);
-void Comp1_init(void);
-void Light_init(void);
-# 11 "../main.c" 2
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
 
-# 1 "../timers.h" 1
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
 
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
 
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
 
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
 
+void perror(const char *);
 
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
 
+char *tmpnam(char *);
+FILE *tmpfile(void);
 
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 12 "../main.c" 2
 
-# 1 "../ADC.h" 1
 
 
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
 
 
 
 
 
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 13 "../main.c" 2
 
-# 1 "../MonthTracker.h" 1
-# 15 "../MonthTracker.h"
-unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year);
-# 14 "../main.c" 2
 
+char *tempnam(const char *, const char *);
+# 2 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
 
+# 1 "../../lab-4-lcd-darciea-matti.X/LCD.h" 1
+# 17 "../../lab-4-lcd-darciea-matti.X/LCD.h"
+void LCD_E_TOG(void);
+void LCD_sendnibble(unsigned char number);
+void LCD_sendbyte(unsigned char Byte, char type);
+void LCD_Init(void);
+void LCD_setline (char line);
+void LCD_sendstring(char *string);
+void LCD_scroll(void);
+void LCD_clear(void);
+void ADC2String(char *buf, unsigned int number);
+# 3 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
 
 
 
 
 
 
-void main(void) {
+void LCD_E_TOG(void)
+{
+ LATCbits.LATC2 = 1;
+ _delay((unsigned long)((2)*(64000000/4000000.0)));
+ LATCbits.LATC2 = 0;
+}
 
 
-    unsigned int day = 2;
-    unsigned int month = 11;
-    unsigned int month_day = 29;
-    unsigned int year = 2022;
-    unsigned int changed = 0;
-    unsigned int OneAmToFiveAmFlag = 0;
 
 
-    Timer0_init();
-    LEDarray_init();
-    Interrupts_init();
-    LEDarray_init();
-    Comp1_init();
-    Light_init();
-    ADC_init();
+void LCD_sendnibble(unsigned char number)
+{
 
-    while(1){
+ if (number & 0b0001) {LATBbits.LATB3 = 1;} else {LATBbits.LATB3 = 0;}
+    if (number & 0b0010) {LATBbits.LATB2 = 1;} else {LATBbits.LATB2 = 0;}
+    if (number & 0b0100) {LATEbits.LATE3 = 1;} else {LATEbits.LATE3 = 0;}
+    if (number & 0b1000) {LATEbits.LATE1 = 1;} else {LATEbits.LATE1 = 0;}
 
-        if (minute == 60) {
-            hour++;
-            minute = 0;
-            if (hour == 24){
-                hour = 0;
-                day++;
-                month_day++;
-                month, month_day = check_month(month, month_day, year);
-                if (day == 7){day = 0;}
+    LCD_E_TOG();
+    _delay((unsigned long)((5)*(64000000/4000000.0)));
+}
 
 
 
-                if (daylight_end_min >= daylight_start_min) {
-                    current_day_min = daylight_end_min - daylight_start_min;
-                    current_day_hour = daylight_end_hour - daylight_start_hour;}
-                else {
-                    current_day_min = daylight_end_min + (60-daylight_start_min);
-                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;
-                }
 
-                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
-                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
 
 
-            }
-        }
+void LCD_sendbyte(unsigned char Byte, char type)
+{
+    if (type) {LATCbits.LATC6 = 1;} else {LATCbits.LATC6 = 0;}
+    LCD_sendnibble((Byte >> 4)& 0b1111);
+    LCD_sendnibble(Byte & 0b00001111);
 
-        if (hour >= 1 && hour < 5){
-            LATHbits.LATH3=0;
-            OneAmToFiveAmFlag = 1;}
-        if (hour == 5 && OneAmToFiveAmFlag == 1 && CM1CON0bits.OUT == 1){
-                LATHbits.LATH3=1;
-                OneAmToFiveAmFlag = 0;}
+    _delay((unsigned long)((50)*(64000000/4000000.0)));
+}
 
-        LEDarray_disp_bin(hour);
 
 
 
-        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}
+void LCD_Init(void)
+{
 
-        if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
-            hour--;
-            changed = 1;
-        }
-        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC2 = 0;
+    TRISBbits.TRISB3 = 0;
+    TRISBbits.TRISB2 = 0;
+    TRISEbits.TRISE3 = 0;
+    TRISEbits.TRISE1 = 0;
 
+    LATCbits.LATC6 = 0;
+    LATCbits.LATC2 = 0;
+    LATBbits.LATB3 = 0;
+    LATBbits.LATB2 = 0;
+    LATEbits.LATE3 = 0;
+    LATEbits.LATE1 = 0;
+
+
+ _delay((unsigned long)((50)*(64000000/4000.0)));
+ LCD_sendnibble(0b0011);
+    _delay((unsigned long)((45)*(64000000/4000000.0)));
+    LCD_sendnibble(0b0010);
+    _delay((unsigned long)((45)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00101000,0);
+    _delay((unsigned long)((45)*(64000000/4000000.0)));
+
+    LCD_sendbyte(0b00001000,0);
+    _delay((unsigned long)((45)*(64000000/4000000.0)));
+    LCD_sendbyte(0b00000001,0);
+    _delay((unsigned long)((2)*(64000000/4000.0)));
+    LCD_sendbyte(0b0000110,0);
+
+
+    LCD_sendbyte(0b00001100,0);
+
+}
+
+
+
+
+void LCD_setline (char line)
+{
+    if (line == 1) {LCD_sendbyte(0x80,0);};
+    if (line == 2) {LCD_sendbyte(0xC0,0);}
+}
+
+
+
+
+void LCD_sendstring(char *string)
+{
+ while(*string != 0) {
+        LCD_sendbyte(*string++,1);
     }
+}
+
+
+
+
+void LCD_scroll(void)
+{
+ LCD_sendbyte(0b00011000,0);
+
+}
+
+
+
+
+
+
+void ADC2String(char *buf, unsigned int ADC_val){
+
+ int int_part = ADC_val/77;
+    int frac_part = (ADC_val*100)/77 - int_part*100;
+    sprintf(buf, "Voltage = %d.%02d",int_part, frac_part);
+
 }

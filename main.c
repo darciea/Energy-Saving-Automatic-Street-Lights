@@ -27,7 +27,7 @@ void main(void) {
     unsigned int month_day = 29;
     unsigned int year = 2022;
     unsigned int changed = 0;
-    
+    unsigned int OneAmToFiveAmFlag = 0;
     
 
     Timer0_init();
@@ -60,11 +60,19 @@ void main(void) {
                     current_day_hour = daylight_end_hour - daylight_start_hour - 1;
                 }
                 //now determine the time at which solar noon occurred
-                calculated_solar_noon_hour = daylight_start_hour + (daylight_end_hour - daylight_start_hour)*0.5;
+                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
+                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
+                
+                //if calculated solar noon is not equal to 12:00, adjust time to correct for this
             } 
         }
               
-        if (hour >= 1 && hour < 5){LATHbits.LATH3=0;} //check whether we are in the 1-5am zone. If so, make sure LED is turned off
+        if (hour >= 1 && hour < 5){ //check whether we are in the 1-5am zone.
+            LATHbits.LATH3=0; // If so, make sure LED is turned off, overwriting everything
+            OneAmToFiveAmFlag = 1;} // use flag to indicate we are within the 1am to 5 am region  
+        if (hour == 5 && OneAmToFiveAmFlag == 1 && CM1CON0bits.OUT == 1){ // as the time exits the 1am to 5am zone, check that it is still dark, and use the flag...
+                LATHbits.LATH3=1; // to trigger the LED coming back on
+                OneAmToFiveAmFlag = 0;} // and reset the flag so that it doesn't get turned on continuously
         
         LEDarray_disp_bin(hour); //display hour variable on LED array
         
