@@ -32,9 +32,18 @@ void __interrupt(high_priority) HighISR()
     }
     
     if (PIR2bits.C1IF){ //check the interrupt source - comparator
+        if (CM1CON0bits.OUT == 0) { //check if the change is rising edge
+            daylight_start_hour = hour; //log the time of the start of daylight hours
+            daylight_start_min = minute;
+            LATHbits.LATH3=0; // Change LED to off (doesn't matter if we are inside or outside the 1-5am zone)
+            }
+        else if (CM1CON0bits.OUT == 1){ // check if the change is falling edge
+            daylight_end_hour = hour; //log the time of the end of daylight hours
+            daylight_end_min = minute;
         if (hour <1 || hour >=5){ //check whether we are outside the 1-5am zone
             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;} //check if the change is falling edge. If so, change LED to on
             else {LATHbits.LATH3=0;} //if not, assume change has been rising edge and turn LED off
+            LATHbits.LATH3=1;} //turn on LED
         }
         PIR2bits.C1IF=0; //clear the interrupt flag
     }

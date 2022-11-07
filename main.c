@@ -14,17 +14,19 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-//global variable 'minute' defined in interrupts.h
+//global variables defined in interrupts.h
 
-//manually initialise variables for when program starts
-unsigned int day = 1; //(0 = sunday,6 = sat)
-unsigned int month = 11; //
-unsigned int month_day = 7;
-unsigned int year = 2022;
-unsigned int leap_year = 0;
-unsigned int changed = 0;
+
 
 void main(void) {
+   
+    //manually initialise variables for when program starts
+    unsigned int day = 1; //(0 = sunday,6 = sat)
+    unsigned int month = 11; //
+    unsigned int month_day = 7;
+    unsigned int year = 2022;
+    unsigned int leap_year = 0;
+    unsigned int changed = 0;
 
     Timer0_init();
     LEDarray_init();
@@ -44,7 +46,18 @@ void main(void) {
                 day++;
                 if (day == 7){day = 0;}
                 month_day++;
-            } //if the day is over, reset hour to 0
+                
+                 //below is the algorithm used to determine length of daylight using minute and hour values.
+                if (daylight_end_minute >= daylight_start_minute) {
+                    current_day_minute = daylight_end_minute - daylight_start_minute;
+                    current_day_hour = daylight_end_hour - daylight_start_hour;}
+                else {
+                    current_day_minute = daylight_end_minute + (60-daylight_start_minute);
+                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;
+                }
+                //now determine the time at which solar noon occurred
+                calculated_solar_noon_hour = daylight_start_hour + (daylight_end_hour - daylight_start_hour)*0.5;
+            } 
         }
               
         if (hour >= 1 && hour < 5){LATHbits.LATH3=0;} //check whether we are in the 1-5am zone. If so, make sure LED is turned off
