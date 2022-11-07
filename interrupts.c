@@ -24,17 +24,17 @@ void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...
     
-    if (TMR0IF) { //check interrupt source - timer
+    if (TMR0IF) { //check interrupt source - timer. Timer overflows every minute so interrupt is triggered every minute
         TMR0H=0b00001011;            //TMR0H:TMR0L so that the entire value is 3035
         TMR0L=0b00001011;  //start at 3035 as that is the discrepancy between 1:244 and 1:256
-        minute += 1;
-        //if (hour==24) {hour=0;}
+        minute += 1; //increment minute by 1.
         TMR0IF=0; //clear the interrupt flag
     }
     
     if (PIR2bits.C1IF){ //check the interrupt source - comparator
-        if (hour <1 || hour >=5){
-            LATHbits.LATH3=!LATHbits.LATH3;
+        if (hour <1 || hour >=5){ //check whether we are outside the 1-5am zone
+            if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;} //check if the change is falling edge. If so, change LED to on
+            else {LATHbits.LATH3=0;} //if not, assume change has been rising edge and turn LED off
         }
         PIR2bits.C1IF=0; //clear the interrupt flag
     }

@@ -24266,13 +24266,13 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
         TMR0H=0b00001011;
         TMR0L=0b00001011;
         minute += 1;
-
         TMR0IF=0;
     }
 
     if (PIR2bits.C1IF){
         if (hour <1 || hour >=5){
-            LATHbits.LATH3=!LATHbits.LATH3;
+            if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
+            else {LATHbits.LATH3=0;}
         }
         PIR2bits.C1IF=0;
     }

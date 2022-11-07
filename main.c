@@ -29,12 +29,14 @@ void main(void) {
     
     while(1){
         
-        if (minute == 60) {
-            hour++;
-            minute = 0;
-            if (hour == 24){hour = 0;}
+        if (minute == 60) { //trigger every time minute variable hits 60
+            hour++; // increment hour by 1
+            minute = 0; //reset minute to 0
+            if (hour == 24){hour = 0;} //if the day is over, reset hour to 0
         }
         
-        LEDarray_disp_bin(hour); //display current timer value (most significant bits only) on LED array
+        if (hour >= 1 && hour < 5){LATHbits.LATH3=0;} //check whether we are in the 1-5am zone. If so, make sure LED is turned off
+        
+        LEDarray_disp_bin(hour); //display hour variable on LED array
     }
 }

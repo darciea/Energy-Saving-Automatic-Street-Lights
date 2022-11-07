@@ -24331,6 +24331,8 @@ void main(void) {
             if (hour == 24){hour = 0;}
         }
 
+        if (hour >= 1 && hour < 5){LATHbits.LATH3=0;}
+
         LEDarray_disp_bin(hour);
     }
 }

@@ -2137,8 +2137,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Light_init ]
 [f ]
 "10
-[; ;../comparator.c: 10:    LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;../comparator.c: 10:    LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "11
 [; ;../comparator.c: 11:    TRISHbits.TRISH3=0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
