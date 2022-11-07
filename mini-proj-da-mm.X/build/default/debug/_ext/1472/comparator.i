@@ -1,4 +1,4 @@
-# 1 "../interrupts.c"
+# 1 "../comparator.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../interrupts.c" 2
+# 1 "../comparator.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,69 +24229,56 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 1 "../interrupts.c" 2
+# 1 "../comparator.c" 2
 
-# 1 "../interrupts.h" 1
-
-
+# 1 "../comparator.h" 1
 
 
 
 
 
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 0;
-unsigned int minute = 0;
 
-unsigned int current_day_hour = 0;
-unsigned int current_day_min = 0;
-unsigned int daylight_start_hour = 0;
-unsigned int daylight_start_min = 0;
-unsigned int daylight_end_hour = 0;
-unsigned int daylight_end_min = 0;
-unsigned int calculated_solar_noon_hour;
-unsigned int calculated_solar_noon_min;
-# 2 "../interrupts.c" 2
-# 11 "../interrupts.c"
-void Interrupts_init(void)
+void DAC_init(void);
+void Comp1_init(void);
+void Light_init(void);
+# 2 "../comparator.c" 2
+
+
+
+
+
+
+void Light_init(void)
 {
+   LATHbits.LATH3=1;
+   TRISHbits.TRISH3=0;
+}
 
-    TMR0IE=1;
-    INTCONbits.GIEH=1;
-    INTCONbits.GIEL = 1;
+void DAC_init(void)
+{
+    DAC1CON0bits.PSS=0b00;
+    DAC1CON0bits.NSS=0b0;
+
+
+
+    DAC1CON1bits.DAC1R=27;
+    DAC1CON0bits.DAC1EN=1;
 }
 
 
 
 
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void Comp1_init(void)
 {
-
-
-    if (TMR0IF) {
-        TMR0H=0b00001011;
-        TMR0L=0b00001011;
-        minute += 1;
-        TMR0IF=0;
-    }
-
-    if (PIR2bits.C1IF){
-        if (CM1CON0bits.OUT == 0) {
-            daylight_start_hour = hour;
-            daylight_start_min = minute;
-            LATHbits.LATH3=0;
-            }
-        else if (CM1CON0bits.OUT == 1){
-            daylight_end_hour = hour;
-            daylight_end_min = minute;
-        if (hour <1 || hour >=5){
-            if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
-            else {LATHbits.LATH3=0;}
-            LATHbits.LATH3=1;}
-        }
-        PIR2bits.C1IF=0;
-    }
+    TRISAbits.TRISA3=1;
+    CM1NCHbits.NCH=0b011;
+    CM1PCHbits.PCH=0b101;
+    CM1CON0bits.HYS=1;
+    CM1CON0bits.POL=1;
+    CM1CON1bits.INTP=1;
+    CM1CON1bits.INTN=1;
+    DAC_init();
+    CM1CON0bits.EN=1;
 }

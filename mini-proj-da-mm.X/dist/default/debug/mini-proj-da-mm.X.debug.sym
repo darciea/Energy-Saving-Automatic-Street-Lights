@@ -296,7 +296,7 @@ _INTCONbits FF2 0 ABS 0
 _Light_init 1440 0 CODE 0
 _daylight_end_min 4E 0 COMRAM 1
 __smallconst 0 0 SMALLCONST 0
-__Hreset_vec 4 0 CODE 0
+__Hreset_vec 6 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __end_of_Interrupts_init 1440 0 CODE 0
 ___xxtofl@exp A 0 COMRAM 1
@@ -334,14 +334,14 @@ check_month@year A 0 COMRAM 1
 ___flmul@b F 0 COMRAM 1
 __end_of_HighISR BE 0 CODE 0
 %segments
-reset_vec 0 3 CODE 0 0
+reset_vec 0 5 CODE 0 0
 intcode 8 1445 CODE 8 0
 cstackCOMRAM 1 5E COMRAM 1 1
 bssBANK0 60 63 BANK0 60 1
 %locals
-dist/default/production\mini-proj-da-mm.X.production.o
+dist/default/debug\mini-proj-da-mm.X.debug.o
 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\darci\AppData\Local\Temp\xcAsh0g.s
+C:\Users\darci\AppData\Local\Temp\xcAsbm0.s
 9421 13C8 0 CODE 0
 9423 13C8 0 CODE 0
 9426 13C8 0 CODE 0
@@ -778,7 +778,7 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
 19 141C 0 CODE 0
 20 141E 0 CODE 0
 21 1420 0 CODE 0
-C:\Users\darci\AppData\Local\Temp\xcAsh0g.s
+C:\Users\darci\AppData\Local\Temp\xcAsbm0.s
 14269 8 0 CODE 0
 ../interrupts.c
 23 8 0 CODE 0

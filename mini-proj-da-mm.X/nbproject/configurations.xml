@@ -9,7 +9,7 @@
       <itemPath>../comparator.h</itemPath>
       <itemPath>../interrupts.h</itemPath>
       <itemPath>../timers.h</itemPath>
-      <itemPath>../../lab-4-lcd-darciea-matti.X/LCD.h</itemPath>
+      <itemPath>../MonthTracker.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,7 +24,6 @@
       <itemPath>../interrupts.c</itemPath>
       <itemPath>../main.c</itemPath>
       <itemPath>../timers.c</itemPath>
-      <itemPath>../../lab-4-lcd-darciea-matti.X/LCD.c</itemPath>
       <itemPath>../MonthTracker.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -35,7 +34,6 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
-    <Elem>../../lab-4-lcd-darciea-matti.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

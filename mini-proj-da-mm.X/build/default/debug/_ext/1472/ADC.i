@@ -1,4 +1,4 @@
-# 1 "../interrupts.c"
+# 1 "../ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../interrupts.c" 2
+# 1 "../ADC.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,69 +24229,53 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 1 "../interrupts.c" 2
+# 1 "../ADC.c" 2
 
-# 1 "../interrupts.h" 1
-
-
+# 1 "../ADC.h" 1
 
 
 
 
 
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 0;
-unsigned int minute = 0;
 
-unsigned int current_day_hour = 0;
-unsigned int current_day_min = 0;
-unsigned int daylight_start_hour = 0;
-unsigned int daylight_start_min = 0;
-unsigned int daylight_end_hour = 0;
-unsigned int daylight_end_min = 0;
-unsigned int calculated_solar_noon_hour;
-unsigned int calculated_solar_noon_min;
-# 2 "../interrupts.c" 2
-# 11 "../interrupts.c"
-void Interrupts_init(void)
+void ADC_init(void);
+unsigned int ADC_getval(void);
+# 2 "../ADC.c" 2
+
+
+
+
+
+
+
+void ADC_init(void)
 {
+    TRISAbits.TRISA3=1;
+    ANSELAbits.ANSELA3=1;
 
-    TMR0IE=1;
-    INTCONbits.GIEH=1;
-    INTCONbits.GIEL = 1;
+
+    ADREFbits.ADNREF = 0;
+    ADREFbits.ADPREF = 0b00;
+    ADPCH=0b11;
+    ADCON0bits.ADFM = 0;
+    ADCON0bits.ADCS = 1;
+    ADCON0bits.ADON = 1;
 }
 
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+unsigned int ADC_getval(void)
 {
+    unsigned int tmpval;
+
+    ADCON0bits.GO = 1;
+
+    while (ADCON0bits.GO);
+
+    tmpval = ADRESH;
 
 
-    if (TMR0IF) {
-        TMR0H=0b00001011;
-        TMR0L=0b00001011;
-        minute += 1;
-        TMR0IF=0;
-    }
 
-    if (PIR2bits.C1IF){
-        if (CM1CON0bits.OUT == 0) {
-            daylight_start_hour = hour;
-            daylight_start_min = minute;
-            LATHbits.LATH3=0;
-            }
-        else if (CM1CON0bits.OUT == 1){
-            daylight_end_hour = hour;
-            daylight_end_min = minute;
-        if (hour <1 || hour >=5){
-            if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
-            else {LATHbits.LATH3=0;}
-            LATHbits.LATH3=1;}
-        }
-        PIR2bits.C1IF=0;
-    }
+    tmpval = 255 - tmpval;
+
+    return tmpval;
 }

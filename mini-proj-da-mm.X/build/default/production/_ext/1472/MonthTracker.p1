@@ -1,98 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"49183 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 49183: extern volatile __bit TMR0IE __attribute__((address(0x714D)));
-[v _TMR0IE `Vb ~T0 @X0 0 e@29005 ]
-"40479
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40479:     struct {
-[s S1985 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1985 . INT0EDG INT1EDG INT2EDG INT3EDG . IPEN PEIE_GIEL GIE_GIEH ]
-"40489
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40489:     struct {
-[s S1986 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1986 . . PEIE GIE ]
-"40494
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40494:     struct {
-[s S1987 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1987 . . GIEL GIEH ]
-"40478
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40478: typedef union {
-[u S1984 `S1985 1 `S1986 1 `S1987 1 ]
-[n S1984 . . . . ]
-"40500
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40500: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS1984 ~T0 @X0 0 e@4082 ]
-[t ~ __interrupt . k ]
-[t T2 __interrupt high_priority ]
-"49186
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 49186: extern volatile __bit TMR0IF __attribute__((address(0x719D)));
-[v _TMR0IF `Vb ~T0 @X0 0 e@29085 ]
-"39327
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 39327: extern volatile unsigned char TMR0H __attribute__((address(0xFD4)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4052 ]
-"39189
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 39189: extern volatile unsigned char TMR0L __attribute__((address(0xFD3)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4051 ]
-"5192
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 5192:     struct {
-[s S291 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S291 . C1IF C2IF C3IF . ZCDIF HLVDIF ]
-"5200
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 5200:     struct {
-[s S292 :6 `uc 1 :1 `uc 1 ]
-[n S292 . . CMIF ]
-"5191
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 5191: typedef union {
-[u S290 `S291 1 `S292 1 ]
-[n S290 . . . ]
-"5205
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 5205: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xE35)));
-[v _PIR2bits `VS290 ~T0 @X0 0 e@3637 ]
-"13931
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 13931:     struct {
-[s S642 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S642 . SYNC HYS . POL . OUT EN ]
-"13940
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 13940:     struct {
-[s S643 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S643 . C1SYNC C1HYS . C1POL . C1OUT C1EN ]
-"13930
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 13930: typedef union {
-[u S641 `S642 1 `S643 1 ]
-[n S641 . . . ]
-"13950
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 13950: extern volatile CM1CON0bits_t CM1CON0bits __attribute__((address(0xED0)));
-[v _CM1CON0bits `VS641 ~T0 @X0 0 e@3792 ]
-"29236
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29236:     struct {
-[s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1361 . LATH0 LATH1 LATH2 LATH3 ]
-"29242
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29242:     struct {
-[s S1362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1362 . LH0 LH1 LH2 LH3 ]
-"29248
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29248:     struct {
-[s S1363 :4 `uc 1 :1 `uc 1 ]
-[n S1363 . . LH4 ]
-"29252
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29252:     struct {
-[s S1364 :5 `uc 1 :1 `uc 1 ]
-[n S1364 . . LH5 ]
-"29256
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29256:     struct {
-[s S1365 :6 `uc 1 :1 `uc 1 ]
-[n S1365 . . LH6 ]
-"29260
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29260:     struct {
-[s S1366 :7 `uc 1 :1 `uc 1 ]
-[n S1366 . . LH7 ]
-"29235
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29235: typedef union {
-[u S1360 `S1361 1 `S1362 1 `S1363 1 `S1364 1 `S1365 1 `S1366 1 ]
-[n S1360 . . . . . . . ]
-"29265
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29265: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
-[v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2067,178 +1973,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 0;
-[v _hour `ui ~T0 @X0 1 e ]
-[i _hour
--> -> 0 `i `ui
-]
+"12 ../MonthTracker.c
+[; ;../MonthTracker.c: 12:      unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year)
+[v _check_month `(ui ~T0 @X0 1 ef3`ui`ui`ui ]
+"13
+[; ;../MonthTracker.c: 13:     {
+{
+[e :U _check_month ]
 "12
-[; ;../interrupts.h: 12: unsigned int minute = 0;
-[v _minute `ui ~T0 @X0 1 e ]
-[i _minute
--> -> 0 `i `ui
-]
+[; ;../MonthTracker.c: 12:      unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year)
+[v _month `ui ~T0 @X0 1 r1 ]
+[v _month_day `ui ~T0 @X0 1 r2 ]
+[v _year `ui ~T0 @X0 1 r3 ]
+"13
+[; ;../MonthTracker.c: 13:     {
+[f ]
 "14
-[; ;../interrupts.h: 14: unsigned int current_day_hour = 0;
-[v _current_day_hour `ui ~T0 @X0 1 e ]
-[i _current_day_hour
--> -> 0 `i `ui
-]
-"15
-[; ;../interrupts.h: 15: unsigned int current_day_min = 0;
-[v _current_day_min `ui ~T0 @X0 1 e ]
-[i _current_day_min
--> -> 0 `i `ui
-]
+[; ;../MonthTracker.c: 14:         int leap_year = 0;
+[v _leap_year `i ~T0 @X0 1 a ]
+[e = _leap_year -> 0 `i ]
 "16
-[; ;../interrupts.h: 16: unsigned int daylight_start_hour = 0;
-[v _daylight_start_hour `ui ~T0 @X0 1 e ]
-[i _daylight_start_hour
--> -> 0 `i `ui
-]
-"17
-[; ;../interrupts.h: 17: unsigned int daylight_start_min = 0;
-[v _daylight_start_min `ui ~T0 @X0 1 e ]
-[i _daylight_start_min
--> -> 0 `i `ui
-]
+[; ;../MonthTracker.c: 16:         if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8|| month == 10 || month == 12) && month_day == 32){
+[e $ ! && || || || || || || == _month -> -> 1 `i `ui == _month -> -> 3 `i `ui == _month -> -> 5 `i `ui == _month -> -> 7 `i `ui == _month -> -> 8 `i `ui == _month -> -> 10 `i `ui == _month -> -> 12 `i `ui == _month_day -> -> 32 `i `ui 2016  ]
+{
 "18
-[; ;../interrupts.h: 18: unsigned int daylight_end_hour = 0;
-[v _daylight_end_hour `ui ~T0 @X0 1 e ]
-[i _daylight_end_hour
--> -> 0 `i `ui
-]
+[; ;../MonthTracker.c: 18:             month_day = 1;
+[e = _month_day -> -> 1 `i `ui ]
 "19
-[; ;../interrupts.h: 19: unsigned int daylight_end_min = 0;
-[v _daylight_end_min `ui ~T0 @X0 1 e ]
-[i _daylight_end_min
--> -> 0 `i `ui
-]
+[; ;../MonthTracker.c: 19:             month++;
+[e ++ _month -> -> 1 `i `ui ]
 "20
-[; ;../interrupts.h: 20: unsigned int calculated_solar_noon_hour;
-[v _calculated_solar_noon_hour `ui ~T0 @X0 1 e ]
+[; ;../MonthTracker.c: 20:             if (month == 13){
+[e $ ! == _month -> -> 13 `i `ui 2017  ]
+{
 "21
-[; ;../interrupts.h: 21: unsigned int calculated_solar_noon_min;
-[v _calculated_solar_noon_min `ui ~T0 @X0 1 e ]
-"11 ../interrupts.c
-[; ;../interrupts.c: 11: void Interrupts_init(void)
-[v _Interrupts_init `(v ~T0 @X0 1 ef ]
-"12
-[; ;../interrupts.c: 12: {
-{
-[e :U _Interrupts_init ]
-[f ]
-"14
-[; ;../interrupts.c: 14:     TMR0IE=1;
-[e = _TMR0IE -> -> 1 `i `b ]
-"15
-[; ;../interrupts.c: 15:     INTCONbits.GIEH=1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"16
-[; ;../interrupts.c: 16:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"17
-[; ;../interrupts.c: 17: }
-[e :UE 2015 ]
-}
-[v $root$_HighISR `(v ~T0 @X0 0 e ]
+[; ;../MonthTracker.c: 21:                 month = 1;
+[e = _month -> -> 1 `i `ui ]
+"22
+[; ;../MonthTracker.c: 22:                 year++;
+[e ++ _year -> -> 1 `i `ui ]
 "23
-[; ;../interrupts.c: 23: void __attribute__((picinterrupt(("high_priority")))) HighISR()
-[v _HighISR `(v ~T2 @X0 1 ef ]
-"24
-[; ;../interrupts.c: 24: {
-{
-[e :U _HighISR ]
-[f ]
-"27
-[; ;../interrupts.c: 27:     if (TMR0IF) {
-[e $ ! _TMR0IF 2017  ]
-{
-"28
-[; ;../interrupts.c: 28:         TMR0H=0b00001011;
-[e = _TMR0H -> -> 11 `i `uc ]
-"29
-[; ;../interrupts.c: 29:         TMR0L=0b00001011;
-[e = _TMR0L -> -> 11 `i `uc ]
-"30
-[; ;../interrupts.c: 30:         minute += 1;
-[e =+ _minute -> -> 1 `i `ui ]
-"31
-[; ;../interrupts.c: 31:         TMR0IF=0;
-[e = _TMR0IF -> -> 0 `i `b ]
-"32
-[; ;../interrupts.c: 32:     }
+[; ;../MonthTracker.c: 23:             }
 }
 [e :U 2017 ]
-"34
-[; ;../interrupts.c: 34:     if (PIR2bits.C1IF){
-[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2018  ]
-{
-"35
-[; ;../interrupts.c: 35:         if (CM1CON0bits.OUT == 0) {
-[e $ ! == -> . . _CM1CON0bits 0 5 `i -> 0 `i 2019  ]
-{
-"36
-[; ;../interrupts.c: 36:             daylight_start_hour = hour;
-[e = _daylight_start_hour _hour ]
-"37
-[; ;../interrupts.c: 37:             daylight_start_min = minute;
-[e = _daylight_start_min _minute ]
-"38
-[; ;../interrupts.c: 38:             LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"39
-[; ;../interrupts.c: 39:             }
+"24
+[; ;../MonthTracker.c: 24:         }
 }
-[e $U 2020  ]
-"40
-[; ;../interrupts.c: 40:         else if (CM1CON0bits.OUT == 1){
-[e :U 2019 ]
-[e $ ! == -> . . _CM1CON0bits 0 5 `i -> 1 `i 2021  ]
+[e :U 2016 ]
+"26
+[; ;../MonthTracker.c: 26:         if ((month == 4 || month == 6 || month == 9 || month == 11) && month_day == 31){
+[e $ ! && || || || == _month -> -> 4 `i `ui == _month -> -> 6 `i `ui == _month -> -> 9 `i `ui == _month -> -> 11 `i `ui == _month_day -> -> 31 `i `ui 2018  ]
 {
-"41
-[; ;../interrupts.c: 41:             daylight_end_hour = hour;
-[e = _daylight_end_hour _hour ]
-"42
-[; ;../interrupts.c: 42:             daylight_end_min = minute;
-[e = _daylight_end_min _minute ]
-"43
-[; ;../interrupts.c: 43:         if (hour <1 || hour >=5){
-[e $ ! || < _hour -> -> 1 `i `ui >= _hour -> -> 5 `i `ui 2022  ]
-{
-"44
-[; ;../interrupts.c: 44:             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
-[e $ ! == -> . . _CM1CON0bits 0 5 `i -> 1 `i 2023  ]
-{
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-}
-[e $U 2024  ]
-"45
-[; ;../interrupts.c: 45:             else {LATHbits.LATH3=0;}
-[e :U 2023 ]
-{
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-}
-[e :U 2024 ]
-"46
-[; ;../interrupts.c: 46:             LATHbits.LATH3=1;}
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-}
-[e :U 2022 ]
-"47
-[; ;../interrupts.c: 47:         }
-}
-[e :U 2021 ]
-[e :U 2020 ]
-"48
-[; ;../interrupts.c: 48:         PIR2bits.C1IF=0;
-[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
-"49
-[; ;../interrupts.c: 49:     }
+"28
+[; ;../MonthTracker.c: 28:             month_day = 1;
+[e = _month_day -> -> 1 `i `ui ]
+"29
+[; ;../MonthTracker.c: 29:             month++;
+[e ++ _month -> -> 1 `i `ui ]
+"30
+[; ;../MonthTracker.c: 30:         }
 }
 [e :U 2018 ]
-"50
-[; ;../interrupts.c: 50: }
-[e :UE 2016 ]
+"33
+[; ;../MonthTracker.c: 33:         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {leap_year = 1;}
+[e $ ! || && == % _year -> -> 4 `i `ui -> -> 0 `i `ui != % _year -> -> 100 `i `ui -> -> 0 `i `ui == % _year -> -> 400 `i `ui -> -> 0 `i `ui 2019  ]
+{
+[e = _leap_year -> 1 `i ]
+}
+[e $U 2020  ]
+"34
+[; ;../MonthTracker.c: 34:         else {leap_year = 0;}
+[e :U 2019 ]
+{
+[e = _leap_year -> 0 `i ]
+}
+[e :U 2020 ]
+"36
+[; ;../MonthTracker.c: 36:         if (month == 2 && leap_year == 1){
+[e $ ! && == _month -> -> 2 `i `ui == _leap_year -> 1 `i 2021  ]
+{
+"38
+[; ;../MonthTracker.c: 38:             if (month_day == 30){
+[e $ ! == _month_day -> -> 30 `i `ui 2022  ]
+{
+"39
+[; ;../MonthTracker.c: 39:                 month_day = 1;
+[e = _month_day -> -> 1 `i `ui ]
+"40
+[; ;../MonthTracker.c: 40:                 month++;
+[e ++ _month -> -> 1 `i `ui ]
+"41
+[; ;../MonthTracker.c: 41:             }
+}
+[e $U 2023  ]
+"42
+[; ;../MonthTracker.c: 42:             else if (month == 2 && leap_year ==0){
+[e :U 2022 ]
+[e $ ! && == _month -> -> 2 `i `ui == _leap_year -> 0 `i 2024  ]
+{
+"43
+[; ;../MonthTracker.c: 43:             if (month_day == 29){
+[e $ ! == _month_day -> -> 29 `i `ui 2025  ]
+{
+"44
+[; ;../MonthTracker.c: 44:                 month_day = 1;
+[e = _month_day -> -> 1 `i `ui ]
+"45
+[; ;../MonthTracker.c: 45:                 month++;
+[e ++ _month -> -> 1 `i `ui ]
+"46
+[; ;../MonthTracker.c: 46:                 }
+}
+[e :U 2025 ]
+"47
+[; ;../MonthTracker.c: 47:         }
+}
+[e :U 2024 ]
+[e :U 2023 ]
+"51
+[; ;../MonthTracker.c: 51:         }
+}
+[e :U 2021 ]
+"53
+[; ;../MonthTracker.c: 53:         return (month, month_day);
+[e ) ; _month _month_day ]
+[e $UE 2015  ]
+"55
+[; ;../MonthTracker.c: 55:     }
+[e :UE 2015 ]
 }

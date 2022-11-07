@@ -4,12 +4,11 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
-  -cn -h+dist/default/production\mini-proj-da-mm.X.production.sym \
-  --cmf=dist/default/production\mini-proj-da-mm.X.production.cmf -z \
-  -Q18F67K40 -oC:\Users\darci\AppData\Local\Temp\xcAsh0g.4 \
-  --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/production/mini-proj-da-mm.X.production.map \
-  --md=C:\Users\darci\AppData\Local\Temp\xcAsh0g.dat -E1 -ver=XC8 Compiler \
+  -cn -h+dist/default/debug\mini-proj-da-mm.X.debug.sym \
+  --cmf=dist/default/debug\mini-proj-da-mm.X.debug.cmf -z -Q18F67K40 \
+  -oC:\Users\darci\AppData\Local\Temp\xcAsbm0.4 --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error -Mdist/default/debug/mini-proj-da-mm.X.debug.map \
+  --md=C:\Users\darci\AppData\Local\Temp\xcAsbm0.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -29,8 +28,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\darci\AppData\Local\Temp\xcAsh0g.o \
-  dist/default/production\mini-proj-da-mm.X.production.o 
+  C:\Users\darci\AppData\Local\Temp\xcAsbm0.o \
+  dist/default/debug\mini-proj-da-mm.X.debug.o 
 
 Object code version is 3.11
 
@@ -39,12 +38,12 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\darci\AppData\Local\Temp\xcAsh0g.o
+C:\Users\darci\AppData\Local\Temp\xcAsbm0.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 BE       BE        4        4       0
-                reset_vec                             0        0        4        0       0
-dist/default/production\mini-proj-da-mm.X.production.o
+                reset_vec                             0        0        6        0       0
+dist/default/debug\mini-proj-da-mm.X.debug.o
                 intcode                               8        8       B6        4       0
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
@@ -73,7 +72,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8       B6         0
                 init                                 BE       BE        4         0
-                reset_vec                             0        0        4         0
+                reset_vec                             0        0        6         0
                 text14                             1408     1408       1A         0
                 text13                             1422     1422       14         0
                 text12                             1380     1380       26         0
@@ -159,7 +158,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000004  000004         0       0  CODE    
+                reset_vec                      000000  000006  000006         0       0  CODE    
                 cstackCOMRAM                   000001  00005E  00005F         1       1  COMRAM  
                 intcode                        000008  00143E  001446         4       0  CODE    
                 bssBANK0                       000060  000004  000064        60       1  BANK0   
@@ -185,10 +184,10 @@ UNUSED ADDRESS RANGES
         BIGRAM           00005F-00005F                1
                          000064-000DE9              D86
         BIGSFR           000DEF-000FFF              211
-        CODE             000004-000007                4
+        CODE             000006-000007                2
                          001446-01FFFF            1EBBA
         COMRAM           00005F-00005F                1
-        CONST            000004-000007                4
+        CONST            000006-000007                2
                          001446-01FFFF            1EBBA
         EEDATA           310000-3103FF              400
         MEDIUMCONST      001446-00FFFF             EBBA
@@ -302,7 +301,7 @@ __Hramtop                   ramtop       000E00
 __Hrbit                     rbit         000000
 __Hrbss                     rbss         000000
 __Hrdata                    rdata        000000
-__Hreset_vec                reset_vec    000004
+__Hreset_vec                reset_vec    000006
 __Hrparam                   rparam       000000
 __Hsfr                      sfr          000000
 __Hsmallconst               smallconst   000000

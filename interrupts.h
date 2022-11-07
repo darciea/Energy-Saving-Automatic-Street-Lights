@@ -8,6 +8,9 @@
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 
+unsigned int hour = 0;
+unsigned int minute = 0;
+
 unsigned int current_day_hour = 0;
 unsigned int current_day_min = 0;
 unsigned int daylight_start_hour = 0;

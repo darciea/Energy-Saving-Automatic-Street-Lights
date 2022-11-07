@@ -14,7 +14,6 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>..</sourceRootElem>
-                <sourceRootElem>../../lab-4-lcd-darciea-matti.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
