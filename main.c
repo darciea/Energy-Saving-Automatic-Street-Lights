@@ -16,6 +16,13 @@
 
 //global variable 'minute' defined in interrupts.h
 
+//manually initialise variables for when program starts
+unsigned int day = 1; //(0 = sunday,6 = sat)
+unsigned int month = 11; //
+unsigned int month_day = 7;
+unsigned int year = 2022;
+unsigned int leap_year = 0;
+unsigned int changed = 0;
 
 void main(void) {
 
@@ -32,11 +39,59 @@ void main(void) {
         if (minute == 60) { //trigger every time minute variable hits 60
             hour++; // increment hour by 1
             minute = 0; //reset minute to 0
-            if (hour == 24){hour = 0;} //if the day is over, reset hour to 0
+            if (hour == 24){
+                hour = 0;
+                day++;
+                if (day == 7){day = 0;}
+                month_day++;
+            } //if the day is over, reset hour to 0
         }
-        
+              
         if (hour >= 1 && hour < 5){LATHbits.LATH3=0;} //check whether we are in the 1-5am zone. If so, make sure LED is turned off
         
         LEDarray_disp_bin(hour); //display hour variable on LED array
+        
+             
+        if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8|| month == 10 || month == 12) && month_day == 32){
+            month_day = 1;
+            month++;
+            if (month == 13){month = 1;}
+        }
+        
+        if ((month == 4 || month == 6 || month == 9 || month == 11) && month_day == 31){
+            month_day = 1;
+            month++;
+            if (month == 13){month = 1;}
+        }
+        
+              
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {leap_year = 1;}
+        else {leap_year = 0;}
+        
+        if (month == 2 && leap_year == 1){
+            if (month_day == 30){
+                month_day = 1;
+                month++;
+                if (month == 13){month = 1;}
+            }
+        else if (month == 2 && leap_year ==0){
+            if (month_day == 29){
+                month_day = 1;
+                month++;
+                if (month == 13){month = 1;}
+            }  
+        }
+            
+        }
+         
+        
+        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;} 
+        
+        if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
+            hour--; 
+            changed = 1;
+        }
+        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        
     }
 }

@@ -2079,6 +2079,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _hour
 -> -> 0 `i `ui
 ]
+"13
+[; ;../interrupts.h: 13: unsigned int current_day_hour = 0;
+[v _current_day_hour `ui ~T0 @X0 1 e ]
+[i _current_day_hour
+-> -> 0 `i `ui
+]
+"14
+[; ;../interrupts.h: 14: unsigned int current_day_min = 0;
+[v _current_day_min `ui ~T0 @X0 1 e ]
+[i _current_day_min
+-> -> 0 `i `ui
+]
+"15
+[; ;../interrupts.h: 15: unsigned int day_before_hour = 0;
+[v _day_before_hour `ui ~T0 @X0 1 e ]
+[i _day_before_hour
+-> -> 0 `i `ui
+]
+"16
+[; ;../interrupts.h: 16: unsigned int day_before_min = 0;
+[v _day_before_min `ui ~T0 @X0 1 e ]
+[i _day_before_min
+-> -> 0 `i `ui
+]
 "11 ../interrupts.c
 [; ;../interrupts.c: 11: void Interrupts_init(void)
 [v _Interrupts_init `(v ~T0 @X0 1 ef ]

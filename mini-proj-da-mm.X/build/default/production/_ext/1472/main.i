@@ -24268,6 +24268,10 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 unsigned int minute = 0;
 unsigned int hour = 0;
+unsigned int current_day_hour = 0;
+unsigned int current_day_min = 0;
+unsigned int day_before_hour = 0;
+unsigned int day_before_min = 0;
 # 10 "../main.c" 2
 
 # 1 "../comparator.h" 1
@@ -24313,6 +24317,13 @@ unsigned int ADC_getval(void);
 
 
 
+unsigned int day = 1;
+unsigned int month = 11;
+unsigned int month_day = 7;
+unsigned int year = 2022;
+unsigned int leap_year = 0;
+unsigned int changed = 0;
+
 void main(void) {
 
     Timer0_init();
@@ -24328,11 +24339,59 @@ void main(void) {
         if (minute == 60) {
             hour++;
             minute = 0;
-            if (hour == 24){hour = 0;}
+            if (hour == 24){
+                hour = 0;
+                day++;
+                if (day == 7){day = 0;}
+                month_day++;
+            }
         }
 
         if (hour >= 1 && hour < 5){LATHbits.LATH3=0;}
 
         LEDarray_disp_bin(hour);
+
+
+        if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8|| month == 10 || month == 12) && month_day == 32){
+            month_day = 1;
+            month++;
+            if (month == 13){month = 1;}
+        }
+
+        if ((month == 4 || month == 6 || month == 9 || month == 11) && month_day == 31){
+            month_day = 1;
+            month++;
+            if (month == 13){month = 1;}
+        }
+
+
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {leap_year = 1;}
+        else {leap_year = 0;}
+
+        if (month == 2 && leap_year == 1){
+            if (month_day == 30){
+                month_day = 1;
+                month++;
+                if (month == 13){month = 1;}
+            }
+        else if (month == 2 && leap_year ==0){
+            if (month_day == 29){
+                month_day = 1;
+                month++;
+                if (month == 13){month = 1;}
+            }
+        }
+
+        }
+
+
+        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}
+
+        if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
+            hour--;
+            changed = 1;
+        }
+        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+
     }
 }

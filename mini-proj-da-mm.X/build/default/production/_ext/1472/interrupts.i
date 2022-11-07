@@ -24244,6 +24244,10 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 unsigned int minute = 0;
 unsigned int hour = 0;
+unsigned int current_day_hour = 0;
+unsigned int current_day_min = 0;
+unsigned int day_before_hour = 0;
+unsigned int day_before_min = 0;
 # 2 "../interrupts.c" 2
 # 11 "../interrupts.c"
 void Interrupts_init(void)
