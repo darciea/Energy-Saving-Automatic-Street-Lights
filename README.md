@@ -17,7 +17,7 @@ Code is then implemented to ensure that between the hours of 1am and 5am, the LE
 
 The program then checks for if it is Daylight Savings Time: 
   Daylight Savings time starts on the last Sunday of March 1am, where this Sunday must fall within the 25th and the 31st, and so an hour is skipped (i.e. the clocks go forward)
-   Daylight Savings time ends on the last Sunday of October 2am, so it is set to an hour behind, with a flag introduced to ensure that when it reaches the same time again, the hour is not changed but the flag is reset the next day ready for the next year.
+   Daylight Savings time ends on the last Sunday of October 2am, so it is set to an hour behind, with a flag introduced to ensure that when it reaches the same time again, the hour is not changed but the flag is reset a couple hours later ready for the next year.
    
 We have additionally displayed the date on the LCD array to view the days and how it changes, however this is an optional feature.
    
