@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year);
+void check_month(unsigned int *month, unsigned int *month_day, unsigned int *year);
 
 
 #ifdef	__cplusplus

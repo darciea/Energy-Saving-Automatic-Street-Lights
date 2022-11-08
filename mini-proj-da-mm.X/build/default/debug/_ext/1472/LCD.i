@@ -1,4 +1,4 @@
-# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c"
+# 1 "../LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
+# 1 "../LCD.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,7 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 1 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
+# 1 "../LCD.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
@@ -24375,10 +24375,10 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 2 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
+# 2 "../LCD.c" 2
 
-# 1 "../../lab-4-lcd-darciea-matti.X/LCD.h" 1
-# 17 "../../lab-4-lcd-darciea-matti.X/LCD.h"
+# 1 "../LCD.h" 1
+# 17 "../LCD.h"
 void LCD_E_TOG(void);
 void LCD_sendnibble(unsigned char number);
 void LCD_sendbyte(unsigned char Byte, char type);
@@ -24388,7 +24388,8 @@ void LCD_sendstring(char *string);
 void LCD_scroll(void);
 void LCD_clear(void);
 void ADC2String(char *buf, unsigned int number);
-# 3 "../../lab-4-lcd-darciea-matti.X/LCD.c" 2
+void LDR2String(char *val, unsigned int number);
+# 3 "../LCD.c" 2
 
 
 
@@ -24473,6 +24474,14 @@ void LCD_Init(void)
 
 
 
+void LCD_clear(void)
+{
+    LCD_sendbyte(0b00000001,0);
+    _delay((unsigned long)((2)*(64000000/4000.0)));
+}
+
+
+
 
 void LCD_setline (char line)
 {
@@ -24509,5 +24518,13 @@ void ADC2String(char *buf, unsigned int ADC_val){
  int int_part = ADC_val/77;
     int frac_part = (ADC_val*100)/77 - int_part*100;
     sprintf(buf, "Voltage = %d.%02d",int_part, frac_part);
+
+}
+
+void LDR2String(char *val, unsigned int ADC_val){
+
+
+
+    sprintf(val, "getval = %d",ADC_val);
 
 }

@@ -1,4 +1,89 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"28699 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28699:     struct {
+[s S1346 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1346 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"28709
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28709:     struct {
+[s S1347 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1347 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"28698
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28698: typedef union {
+[u S1345 `S1346 1 `S1347 1 ]
+[n S1345 . . . ]
+"28720
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28720: extern volatile LATCbits_t LATCbits __attribute__((address(0xF7B)));
+[v _LATCbits `VS1345 ~T0 @X0 0 e@3963 ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"28587 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28587:     struct {
+[s S1343 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1343 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"28597
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28597:     struct {
+[s S1344 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1344 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"28586
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28586: typedef union {
+[u S1342 `S1343 1 `S1344 1 ]
+[n S1342 . . . ]
+"28608
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28608: extern volatile LATBbits_t LATBbits __attribute__((address(0xF7A)));
+[v _LATBbits `VS1342 ~T0 @X0 0 e@3962 ]
+"28923
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28923:     struct {
+[s S1352 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1352 . LATE0 LATE1 LATE2 LATE3 LATE4 LATE5 LATE6 LATE7 ]
+"28933
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28933:     struct {
+[s S1353 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1353 . LE0 LE1 LE2 LE3 LE4 LE5 LE6 LE7 ]
+"28922
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28922: typedef union {
+[u S1351 `S1352 1 `S1353 1 ]
+[n S1351 . . . ]
+"28944
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28944: extern volatile LATEbits_t LATEbits __attribute__((address(0xF7D)));
+[v _LATEbits `VS1351 ~T0 @X0 0 e@3965 ]
+"29585
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29585:     struct {
+[s S1376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1376 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"29584
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29584: typedef union {
+[u S1375 `S1376 1 ]
+[n S1375 . . ]
+"29596
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29596: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF83)));
+[v _TRISCbits `VS1375 ~T0 @X0 0 e@3971 ]
+"29463
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29463:     struct {
+[s S1372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1372 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"29462
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29462: typedef union {
+[u S1371 `S1372 1 ]
+[n S1371 . . ]
+"29474
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29474: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF82)));
+[v _TRISBbits `VS1371 ~T0 @X0 0 e@3970 ]
+"29829
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29829:     struct {
+[s S1384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1384 . TRISE0 TRISE1 TRISE2 TRISE3 TRISE4 TRISE5 TRISE6 TRISE7 ]
+"29828
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29828: typedef union {
+[u S1383 `S1384 1 ]
+[n S1383 . . ]
+"29840
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29840: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF85)));
+[v _TRISEbits `VS1383 ~T0 @X0 0 e@3973 ]
+"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -1973,128 +2058,359 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 ../MonthTracker.c
-[; ;../MonthTracker.c: 12:      void check_month(unsigned int *month, unsigned int *month_day, unsigned short *year)
-[v _check_month `(v ~T0 @X0 1 ef3`*ui`*ui`*us ]
-"13
-[; ;../MonthTracker.c: 13:     {
+"9 ../LCD.c
+[; ;../LCD.c: 9: void LCD_E_TOG(void)
+[v _LCD_E_TOG `(v ~T0 @X0 1 ef ]
+"10
+[; ;../LCD.c: 10: {
 {
-[e :U _check_month ]
-"12
-[; ;../MonthTracker.c: 12:      void check_month(unsigned int *month, unsigned int *month_day, unsigned short *year)
-[v _month `*ui ~T0 @X0 1 r1 ]
-[v _month_day `*ui ~T0 @X0 1 r2 ]
-[v _year `*us ~T0 @X0 1 r3 ]
-"13
-[; ;../MonthTracker.c: 13:     {
+[e :U _LCD_E_TOG ]
 [f ]
+"11
+[; ;../LCD.c: 11:  LATCbits.LATC2 = 1;
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+"12
+[; ;../LCD.c: 12:  _delay((unsigned long)((2)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"13
+[; ;../LCD.c: 13:  LATCbits.LATC2 = 0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
 "14
-[; ;../MonthTracker.c: 14:         int leap_year = 0;
-[v _leap_year `i ~T0 @X0 1 a ]
-[e = _leap_year -> 0 `i ]
-"16
-[; ;../MonthTracker.c: 16:         if ((*month == 1 || *month == 3 || *month == 5 || *month == 7 || *month == 8|| *month == 10 || *month == 12) && *month_day == 32){
-[e $ ! && || || || || || || == *U _month -> -> 1 `i `ui == *U _month -> -> 3 `i `ui == *U _month -> -> 5 `i `ui == *U _month -> -> 7 `i `ui == *U _month -> -> 8 `i `ui == *U _month -> -> 10 `i `ui == *U _month -> -> 12 `i `ui == *U _month_day -> -> 32 `i `ui 2016  ]
-{
-"18
-[; ;../MonthTracker.c: 18:             *month_day = 1;
-[e = *U _month_day -> -> 1 `i `ui ]
+[; ;../LCD.c: 14: }
+[e :UE 2017 ]
+}
 "19
-[; ;../MonthTracker.c: 19:             (*month)++;
-[e ++ *U _month -> -> 1 `i `ui ]
+[; ;../LCD.c: 19: void LCD_sendnibble(unsigned char number)
+[v _LCD_sendnibble `(v ~T0 @X0 1 ef1`uc ]
 "20
-[; ;../MonthTracker.c: 20:             if (*month == 13){
-[e $ ! == *U _month -> -> 13 `i `ui 2017  ]
+[; ;../LCD.c: 20: {
 {
-"21
-[; ;../MonthTracker.c: 21:                 *month = 1;
-[e = *U _month -> -> 1 `i `ui ]
+[e :U _LCD_sendnibble ]
+"19
+[; ;../LCD.c: 19: void LCD_sendnibble(unsigned char number)
+[v _number `uc ~T0 @X0 1 r1 ]
+"20
+[; ;../LCD.c: 20: {
+[f ]
 "22
-[; ;../MonthTracker.c: 22:                 (*year)++;
-[e ++ *U _year -> -> 1 `i `us ]
-"23
-[; ;../MonthTracker.c: 23:             }
-}
-[e :U 2017 ]
-"24
-[; ;../MonthTracker.c: 24:         }
-}
-[e :U 2016 ]
-"26
-[; ;../MonthTracker.c: 26:         if ((*month == 4 || *month == 6 || *month == 9 || *month == 11) && *month_day == 31){
-[e $ ! && || || || == *U _month -> -> 4 `i `ui == *U _month -> -> 6 `i `ui == *U _month -> -> 9 `i `ui == *U _month -> -> 11 `i `ui == *U _month_day -> -> 31 `i `ui 2018  ]
+[; ;../LCD.c: 22:  if (number & 0b0001) {LATBbits.LATB3 = 1;} else {LATBbits.LATB3 = 0;}
+[e $ ! != & -> _number `i -> 1 `i -> 0 `i 2019  ]
 {
-"28
-[; ;../MonthTracker.c: 28:             *month_day = 1;
-[e = *U _month_day -> -> 1 `i `ui ]
-"29
-[; ;../MonthTracker.c: 29:             (*month)++;
-[e ++ *U _month -> -> 1 `i `ui ]
-"30
-[; ;../MonthTracker.c: 30:         }
-}
-[e :U 2018 ]
-"33
-[; ;../MonthTracker.c: 33:         if ((*year % 4 == 0 && *year % 100 != 0) || *year % 400 == 0) {leap_year = 1;}
-[e $ ! || && == % -> *U _year `ui -> -> 4 `i `ui -> -> 0 `i `ui != % -> *U _year `ui -> -> 100 `i `ui -> -> 0 `i `ui == % -> *U _year `ui -> -> 400 `i `ui -> -> 0 `i `ui 2019  ]
-{
-[e = _leap_year -> 1 `i ]
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
 }
 [e $U 2020  ]
-"34
-[; ;../MonthTracker.c: 34:         else {leap_year = 0;}
 [e :U 2019 ]
 {
-[e = _leap_year -> 0 `i ]
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2020 ]
-"36
-[; ;../MonthTracker.c: 36:         if (*month == 2 && leap_year == 1){
-[e $ ! && == *U _month -> -> 2 `i `ui == _leap_year -> 1 `i 2021  ]
+"23
+[; ;../LCD.c: 23:     if (number & 0b0010) {LATBbits.LATB2 = 1;} else {LATBbits.LATB2 = 0;}
+[e $ ! != & -> _number `i -> 2 `i -> 0 `i 2021  ]
 {
-"38
-[; ;../MonthTracker.c: 38:             if (*month_day == 30){
-[e $ ! == *U _month_day -> -> 30 `i `ui 2022  ]
+[e = . . _LATBbits 0 2 -> -> 1 `i `uc ]
+}
+[e $U 2022  ]
+[e :U 2021 ]
 {
-"39
-[; ;../MonthTracker.c: 39:                 *month_day = 1;
-[e = *U _month_day -> -> 1 `i `ui ]
-"40
-[; ;../MonthTracker.c: 40:                 (*month)++;
-[e ++ *U _month -> -> 1 `i `ui ]
-"41
-[; ;../MonthTracker.c: 41:             }
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
 }
 [e :U 2022 ]
-"42
-[; ;../MonthTracker.c: 42:         }
-}
-[e $U 2023  ]
-"43
-[; ;../MonthTracker.c: 43:         else if (*month == 2 && leap_year == 0){
-[e :U 2021 ]
-[e $ ! && == *U _month -> -> 2 `i `ui == _leap_year -> 0 `i 2024  ]
+"24
+[; ;../LCD.c: 24:     if (number & 0b0100) {LATEbits.LATE3 = 1;} else {LATEbits.LATE3 = 0;}
+[e $ ! != & -> _number `i -> 4 `i -> 0 `i 2023  ]
 {
-"44
-[; ;../MonthTracker.c: 44:             if (*month_day == 29){
-[e $ ! == *U _month_day -> -> 29 `i `ui 2025  ]
-{
-"45
-[; ;../MonthTracker.c: 45:                 *month_day = 1;
-[e = *U _month_day -> -> 1 `i `ui ]
-"46
-[; ;../MonthTracker.c: 46:                 (*month)++;
-[e ++ *U _month -> -> 1 `i `ui ]
-"47
-[; ;../MonthTracker.c: 47:                 }
+[e = . . _LATEbits 0 3 -> -> 1 `i `uc ]
 }
-[e :U 2025 ]
-"48
-[; ;../MonthTracker.c: 48:         }
+[e $U 2024  ]
+[e :U 2023 ]
+{
+[e = . . _LATEbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2024 ]
-[e :U 2023 ]
-"52
-[; ;../MonthTracker.c: 52:     }
-[e :UE 2015 ]
+"25
+[; ;../LCD.c: 25:     if (number & 0b1000) {LATEbits.LATE1 = 1;} else {LATEbits.LATE1 = 0;}
+[e $ ! != & -> _number `i -> 8 `i -> 0 `i 2025  ]
+{
+[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
 }
+[e $U 2026  ]
+[e :U 2025 ]
+{
+[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
+}
+[e :U 2026 ]
+"27
+[; ;../LCD.c: 27:     LCD_E_TOG();
+[e ( _LCD_E_TOG ..  ]
+"28
+[; ;../LCD.c: 28:     _delay((unsigned long)((5)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"29
+[; ;../LCD.c: 29: }
+[e :UE 2018 ]
+}
+"36
+[; ;../LCD.c: 36: void LCD_sendbyte(unsigned char Byte, char type)
+[v _LCD_sendbyte `(v ~T0 @X0 1 ef2`uc`uc ]
+"37
+[; ;../LCD.c: 37: {
+{
+[e :U _LCD_sendbyte ]
+"36
+[; ;../LCD.c: 36: void LCD_sendbyte(unsigned char Byte, char type)
+[v _Byte `uc ~T0 @X0 1 r1 ]
+[v _type `uc ~T0 @X0 1 r2 ]
+"37
+[; ;../LCD.c: 37: {
+[f ]
+"38
+[; ;../LCD.c: 38:     if (type) {LATCbits.LATC6 = 1;} else {LATCbits.LATC6 = 0;}
+[e $ ! != -> _type `i -> 0 `i 2028  ]
+{
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+}
+[e $U 2029  ]
+[e :U 2028 ]
+{
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 2029 ]
+"39
+[; ;../LCD.c: 39:     LCD_sendnibble((Byte >> 4)& 0b1111);
+[e ( _LCD_sendnibble (1 -> & >> -> _Byte `i -> 4 `i -> 15 `i `uc ]
+"40
+[; ;../LCD.c: 40:     LCD_sendnibble(Byte & 0b00001111);
+[e ( _LCD_sendnibble (1 -> & -> _Byte `i -> 15 `i `uc ]
+"42
+[; ;../LCD.c: 42:     _delay((unsigned long)((50)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"43
+[; ;../LCD.c: 43: }
+[e :UE 2027 ]
+}
+"48
+[; ;../LCD.c: 48: void LCD_Init(void)
+[v _LCD_Init `(v ~T0 @X0 1 ef ]
+"49
+[; ;../LCD.c: 49: {
+{
+[e :U _LCD_Init ]
+[f ]
+"51
+[; ;../LCD.c: 51:     TRISCbits.TRISC6 = 0;
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+"52
+[; ;../LCD.c: 52:     TRISCbits.TRISC2 = 0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+"53
+[; ;../LCD.c: 53:     TRISBbits.TRISB3 = 0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"54
+[; ;../LCD.c: 54:     TRISBbits.TRISB2 = 0;
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+"55
+[; ;../LCD.c: 55:     TRISEbits.TRISE3 = 0;
+[e = . . _TRISEbits 0 3 -> -> 0 `i `uc ]
+"56
+[; ;../LCD.c: 56:     TRISEbits.TRISE1 = 0;
+[e = . . _TRISEbits 0 1 -> -> 0 `i `uc ]
+"58
+[; ;../LCD.c: 58:     LATCbits.LATC6 = 0;
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+"59
+[; ;../LCD.c: 59:     LATCbits.LATC2 = 0;
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"60
+[; ;../LCD.c: 60:     LATBbits.LATB3 = 0;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+"61
+[; ;../LCD.c: 61:     LATBbits.LATB2 = 0;
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+"62
+[; ;../LCD.c: 62:     LATEbits.LATE3 = 0;
+[e = . . _LATEbits 0 3 -> -> 0 `i `uc ]
+"63
+[; ;../LCD.c: 63:     LATEbits.LATE1 = 0;
+[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
+"66
+[; ;../LCD.c: 66:  _delay((unsigned long)((50)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"67
+[; ;../LCD.c: 67:  LCD_sendnibble(0b0011);
+[e ( _LCD_sendnibble (1 -> -> 3 `i `uc ]
+"68
+[; ;../LCD.c: 68:     _delay((unsigned long)((45)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 45 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"69
+[; ;../LCD.c: 69:     LCD_sendnibble(0b0010);
+[e ( _LCD_sendnibble (1 -> -> 2 `i `uc ]
+"70
+[; ;../LCD.c: 70:     _delay((unsigned long)((45)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 45 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"71
+[; ;../LCD.c: 71:     LCD_sendbyte(0b00101000,0);
+[e ( _LCD_sendbyte (2 , -> -> 40 `i `uc -> -> 0 `i `uc ]
+"72
+[; ;../LCD.c: 72:     _delay((unsigned long)((45)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 45 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"74
+[; ;../LCD.c: 74:     LCD_sendbyte(0b00001000,0);
+[e ( _LCD_sendbyte (2 , -> -> 8 `i `uc -> -> 0 `i `uc ]
+"75
+[; ;../LCD.c: 75:     _delay((unsigned long)((45)*(64000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 45 `i `d / -> -> 64000000 `l `d .4000000.0 `ul ]
+"76
+[; ;../LCD.c: 76:     LCD_sendbyte(0b00000001,0);
+[e ( _LCD_sendbyte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"77
+[; ;../LCD.c: 77:     _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"78
+[; ;../LCD.c: 78:     LCD_sendbyte(0b0000110,0);
+[e ( _LCD_sendbyte (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
+"81
+[; ;../LCD.c: 81:     LCD_sendbyte(0b00001100,0);
+[e ( _LCD_sendbyte (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
+"83
+[; ;../LCD.c: 83: }
+[e :UE 2030 ]
+}
+"87
+[; ;../LCD.c: 87: void LCD_clear(void)
+[v _LCD_clear `(v ~T0 @X0 1 ef ]
+"88
+[; ;../LCD.c: 88: {
+{
+[e :U _LCD_clear ]
+[f ]
+"89
+[; ;../LCD.c: 89:     LCD_sendbyte(0b00000001,0);
+[e ( _LCD_sendbyte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"90
+[; ;../LCD.c: 90:     _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"91
+[; ;../LCD.c: 91: }
+[e :UE 2031 ]
+}
+"96
+[; ;../LCD.c: 96: void LCD_setline (char line)
+[v _LCD_setline `(v ~T0 @X0 1 ef1`uc ]
+"97
+[; ;../LCD.c: 97: {
+{
+[e :U _LCD_setline ]
+"96
+[; ;../LCD.c: 96: void LCD_setline (char line)
+[v _line `uc ~T0 @X0 1 r1 ]
+"97
+[; ;../LCD.c: 97: {
+[f ]
+"98
+[; ;../LCD.c: 98:     if (line == 1) {LCD_sendbyte(0x80,0);};
+[e $ ! == -> _line `i -> 1 `i 2033  ]
+{
+[e ( _LCD_sendbyte (2 , -> -> 128 `i `uc -> -> 0 `i `uc ]
+}
+[e :U 2033 ]
+"99
+[; ;../LCD.c: 99:     if (line == 2) {LCD_sendbyte(0xC0,0);}
+[e $ ! == -> _line `i -> 2 `i 2034  ]
+{
+[e ( _LCD_sendbyte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+}
+[e :U 2034 ]
+"100
+[; ;../LCD.c: 100: }
+[e :UE 2032 ]
+}
+"105
+[; ;../LCD.c: 105: void LCD_sendstring(char *string)
+[v _LCD_sendstring `(v ~T0 @X0 1 ef1`*uc ]
+"106
+[; ;../LCD.c: 106: {
+{
+[e :U _LCD_sendstring ]
+"105
+[; ;../LCD.c: 105: void LCD_sendstring(char *string)
+[v _string `*uc ~T0 @X0 1 r1 ]
+"106
+[; ;../LCD.c: 106: {
+[f ]
+"107
+[; ;../LCD.c: 107:  while(*string != 0) {
+[e $U 2036  ]
+[e :U 2037 ]
+{
+"108
+[; ;../LCD.c: 108:         LCD_sendbyte(*string++,1);
+[e ( _LCD_sendbyte (2 , -> *U ++ _string * -> -> 1 `i `x -> -> # *U _string `i `x `uc -> -> 1 `i `uc ]
+"109
+[; ;../LCD.c: 109:     }
+}
+[e :U 2036 ]
+"107
+[; ;../LCD.c: 107:  while(*string != 0) {
+[e $ != -> *U _string `i -> 0 `i 2037  ]
+[e :U 2038 ]
+"110
+[; ;../LCD.c: 110: }
+[e :UE 2035 ]
+}
+"115
+[; ;../LCD.c: 115: void LCD_scroll(void)
+[v _LCD_scroll `(v ~T0 @X0 1 ef ]
+"116
+[; ;../LCD.c: 116: {
+{
+[e :U _LCD_scroll ]
+[f ]
+"117
+[; ;../LCD.c: 117:  LCD_sendbyte(0b00011000,0);
+[e ( _LCD_sendbyte (2 , -> -> 24 `i `uc -> -> 0 `i `uc ]
+"119
+[; ;../LCD.c: 119: }
+[e :UE 2039 ]
+}
+"126
+[; ;../LCD.c: 126: void ADC2String(char *buf, unsigned int ADC_val){
+[v _ADC2String `(v ~T0 @X0 1 ef2`*uc`ui ]
+{
+[e :U _ADC2String ]
+[v _buf `*uc ~T0 @X0 1 r1 ]
+[v _ADC_val `ui ~T0 @X0 1 r2 ]
+[f ]
+"128
+[; ;../LCD.c: 128:  int int_part = ADC_val/77;
+[v _int_part `i ~T0 @X0 1 a ]
+[e = _int_part -> / _ADC_val -> -> 77 `i `ui `i ]
+"129
+[; ;../LCD.c: 129:     int frac_part = (ADC_val*100)/77 - int_part*100;
+[v _frac_part `i ~T0 @X0 1 a ]
+[e = _frac_part -> - / * _ADC_val -> -> 100 `i `ui -> -> 77 `i `ui -> * _int_part -> 100 `i `ui `i ]
+"130
+[; ;../LCD.c: 130:     sprintf(buf, "Voltage = %d.%02d",int_part, frac_part);
+[e ( _sprintf (1 , , (. , _buf :s 1C _int_part _frac_part ]
+"132
+[; ;../LCD.c: 132: }
+[e :UE 2040 ]
+}
+"134
+[; ;../LCD.c: 134: void LDR2String(char *val, unsigned int ADC_val){
+[v _LDR2String `(v ~T0 @X0 1 ef2`*uc`ui ]
+{
+[e :U _LDR2String ]
+[v _val `*uc ~T0 @X0 1 r1 ]
+[v _ADC_val `ui ~T0 @X0 1 r2 ]
+[f ]
+"138
+[; ;../LCD.c: 138:     sprintf(val, "getval = %d",ADC_val);
+[e ( _sprintf (1 , (. , _val :s 2C _ADC_val ]
+"140
+[; ;../LCD.c: 140: }
+[e :UE 2041 ]
+}
+[p f _sprintf 8421508 ]
+[a 1C 86 111 108 116 97 103 101 32 61 32 37 100 46 37 48 50 100 0 ]
+[a 2C 103 101 116 118 97 108 32 61 32 37 100 0 ]

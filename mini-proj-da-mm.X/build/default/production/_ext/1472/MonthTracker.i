@@ -24241,47 +24241,44 @@ unsigned char __t3rd16on(void);
 
 
 
-     unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year)
+     void check_month(unsigned int *month, unsigned int *month_day, unsigned short *year)
     {
         int leap_year = 0;
 
-        if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8|| month == 10 || month == 12) && month_day == 32){
+        if ((*month == 1 || *month == 3 || *month == 5 || *month == 7 || *month == 8|| *month == 10 || *month == 12) && *month_day == 32){
 
-            month_day = 1;
-            month++;
-            if (month == 13){
-                month = 1;
-                year++;
+            *month_day = 1;
+            (*month)++;
+            if (*month == 13){
+                *month = 1;
+                (*year)++;
             }
         }
 
-        if ((month == 4 || month == 6 || month == 9 || month == 11) && month_day == 31){
+        if ((*month == 4 || *month == 6 || *month == 9 || *month == 11) && *month_day == 31){
 
-            month_day = 1;
-            month++;
+            *month_day = 1;
+            (*month)++;
         }
 
 
-        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {leap_year = 1;}
+        if ((*year % 4 == 0 && *year % 100 != 0) || *year % 400 == 0) {leap_year = 1;}
         else {leap_year = 0;}
 
-        if (month == 2 && leap_year == 1){
+        if (*month == 2 && leap_year == 1){
 
-            if (month_day == 30){
-                month_day = 1;
-                month++;
+            if (*month_day == 30){
+                *month_day = 1;
+                (*month)++;
             }
-            else if (month == 2 && leap_year ==0){
-            if (month_day == 29){
-                month_day = 1;
-                month++;
+        }
+        else if (*month == 2 && leap_year == 0){
+            if (*month_day == 29){
+                *month_day = 1;
+                (*month)++;
                 }
         }
 
 
-
-        }
-
-        return (month, month_day);
 
     }

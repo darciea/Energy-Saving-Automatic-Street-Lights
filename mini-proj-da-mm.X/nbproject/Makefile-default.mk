@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../ADC.c ../LEDarray.c ../comparator.c ../interrupts.c ../main.c ../timers.c ../../lab-4-lcd-darciea-matti.X/LCD.c ../MonthTracker.c
+SOURCEFILES_QUOTED_IF_SPACED=../ADC.c ../LEDarray.c ../comparator.c ../interrupts.c ../main.c ../timers.c ../MonthTracker.c ../LCD.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/ADC.p1 ${OBJECTDIR}/_ext/1472/LEDarray.p1 ${OBJECTDIR}/_ext/1472/comparator.p1 ${OBJECTDIR}/_ext/1472/interrupts.p1 ${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/timers.p1 ${OBJECTDIR}/_ext/653504432/LCD.p1 ${OBJECTDIR}/_ext/1472/MonthTracker.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/ADC.p1.d ${OBJECTDIR}/_ext/1472/LEDarray.p1.d ${OBJECTDIR}/_ext/1472/comparator.p1.d ${OBJECTDIR}/_ext/1472/interrupts.p1.d ${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/timers.p1.d ${OBJECTDIR}/_ext/653504432/LCD.p1.d ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/ADC.p1 ${OBJECTDIR}/_ext/1472/LEDarray.p1 ${OBJECTDIR}/_ext/1472/comparator.p1 ${OBJECTDIR}/_ext/1472/interrupts.p1 ${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/timers.p1 ${OBJECTDIR}/_ext/1472/MonthTracker.p1 ${OBJECTDIR}/_ext/1472/LCD.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/ADC.p1.d ${OBJECTDIR}/_ext/1472/LEDarray.p1.d ${OBJECTDIR}/_ext/1472/comparator.p1.d ${OBJECTDIR}/_ext/1472/interrupts.p1.d ${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/timers.p1.d ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d ${OBJECTDIR}/_ext/1472/LCD.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/ADC.p1 ${OBJECTDIR}/_ext/1472/LEDarray.p1 ${OBJECTDIR}/_ext/1472/comparator.p1 ${OBJECTDIR}/_ext/1472/interrupts.p1 ${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/timers.p1 ${OBJECTDIR}/_ext/653504432/LCD.p1 ${OBJECTDIR}/_ext/1472/MonthTracker.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1472/ADC.p1 ${OBJECTDIR}/_ext/1472/LEDarray.p1 ${OBJECTDIR}/_ext/1472/comparator.p1 ${OBJECTDIR}/_ext/1472/interrupts.p1 ${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/timers.p1 ${OBJECTDIR}/_ext/1472/MonthTracker.p1 ${OBJECTDIR}/_ext/1472/LCD.p1
 
 # Source Files
-SOURCEFILES=../ADC.c ../LEDarray.c ../comparator.c ../interrupts.c ../main.c ../timers.c ../../lab-4-lcd-darciea-matti.X/LCD.c ../MonthTracker.c
+SOURCEFILES=../ADC.c ../LEDarray.c ../comparator.c ../interrupts.c ../main.c ../timers.c ../MonthTracker.c ../LCD.c
 
 
 
@@ -142,14 +142,6 @@ ${OBJECTDIR}/_ext/1472/timers.p1: ../timers.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/timers.d ${OBJECTDIR}/_ext/1472/timers.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/653504432/LCD.p1: ../../lab-4-lcd-darciea-matti.X/LCD.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/653504432" 
-	@${RM} ${OBJECTDIR}/_ext/653504432/LCD.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/653504432/LCD.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/653504432/LCD.p1 ../../lab-4-lcd-darciea-matti.X/LCD.c 
-	@-${MV} ${OBJECTDIR}/_ext/653504432/LCD.d ${OBJECTDIR}/_ext/653504432/LCD.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/653504432/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1472/MonthTracker.p1: ../MonthTracker.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d 
@@ -157,6 +149,14 @@ ${OBJECTDIR}/_ext/1472/MonthTracker.p1: ../MonthTracker.c  nbproject/Makefile-${
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/MonthTracker.p1 ../MonthTracker.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/MonthTracker.d ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1472/LCD.p1: ../LCD.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/LCD.p1 ../LCD.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/LCD.d ${OBJECTDIR}/_ext/1472/LCD.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/_ext/1472/ADC.p1: ../ADC.c  nbproject/Makefile-${CND_CONF}.mk 
@@ -207,14 +207,6 @@ ${OBJECTDIR}/_ext/1472/timers.p1: ../timers.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/timers.d ${OBJECTDIR}/_ext/1472/timers.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/timers.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/653504432/LCD.p1: ../../lab-4-lcd-darciea-matti.X/LCD.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}/_ext/653504432" 
-	@${RM} ${OBJECTDIR}/_ext/653504432/LCD.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/653504432/LCD.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/653504432/LCD.p1 ../../lab-4-lcd-darciea-matti.X/LCD.c 
-	@-${MV} ${OBJECTDIR}/_ext/653504432/LCD.d ${OBJECTDIR}/_ext/653504432/LCD.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/653504432/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/_ext/1472/MonthTracker.p1: ../MonthTracker.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d 
@@ -222,6 +214,14 @@ ${OBJECTDIR}/_ext/1472/MonthTracker.p1: ../MonthTracker.c  nbproject/Makefile-${
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/MonthTracker.p1 ../MonthTracker.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/MonthTracker.d ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/MonthTracker.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1472/LCD.p1: ../LCD.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LCD.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/LCD.p1 ../LCD.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/LCD.d ${OBJECTDIR}/_ext/1472/LCD.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

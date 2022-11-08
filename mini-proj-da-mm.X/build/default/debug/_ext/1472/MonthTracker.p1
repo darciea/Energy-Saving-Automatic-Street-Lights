@@ -1974,17 +1974,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "12 ../MonthTracker.c
-[; ;../MonthTracker.c: 12:      unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year)
-[v _check_month `(ui ~T0 @X0 1 ef3`ui`ui`ui ]
+[; ;../MonthTracker.c: 12:      void check_month(unsigned int *month, unsigned int *month_day, unsigned short *year)
+[v _check_month `(v ~T0 @X0 1 ef3`*ui`*ui`*us ]
 "13
 [; ;../MonthTracker.c: 13:     {
 {
 [e :U _check_month ]
 "12
-[; ;../MonthTracker.c: 12:      unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year)
-[v _month `ui ~T0 @X0 1 r1 ]
-[v _month_day `ui ~T0 @X0 1 r2 ]
-[v _year `ui ~T0 @X0 1 r3 ]
+[; ;../MonthTracker.c: 12:      void check_month(unsigned int *month, unsigned int *month_day, unsigned short *year)
+[v _month `*ui ~T0 @X0 1 r1 ]
+[v _month_day `*ui ~T0 @X0 1 r2 ]
+[v _year `*us ~T0 @X0 1 r3 ]
 "13
 [; ;../MonthTracker.c: 13:     {
 [f ]
@@ -1993,25 +1993,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _leap_year `i ~T0 @X0 1 a ]
 [e = _leap_year -> 0 `i ]
 "16
-[; ;../MonthTracker.c: 16:         if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8|| month == 10 || month == 12) && month_day == 32){
-[e $ ! && || || || || || || == _month -> -> 1 `i `ui == _month -> -> 3 `i `ui == _month -> -> 5 `i `ui == _month -> -> 7 `i `ui == _month -> -> 8 `i `ui == _month -> -> 10 `i `ui == _month -> -> 12 `i `ui == _month_day -> -> 32 `i `ui 2016  ]
+[; ;../MonthTracker.c: 16:         if ((*month == 1 || *month == 3 || *month == 5 || *month == 7 || *month == 8|| *month == 10 || *month == 12) && *month_day == 32){
+[e $ ! && || || || || || || == *U _month -> -> 1 `i `ui == *U _month -> -> 3 `i `ui == *U _month -> -> 5 `i `ui == *U _month -> -> 7 `i `ui == *U _month -> -> 8 `i `ui == *U _month -> -> 10 `i `ui == *U _month -> -> 12 `i `ui == *U _month_day -> -> 32 `i `ui 2016  ]
 {
 "18
-[; ;../MonthTracker.c: 18:             month_day = 1;
-[e = _month_day -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 18:             *month_day = 1;
+[e = *U _month_day -> -> 1 `i `ui ]
 "19
-[; ;../MonthTracker.c: 19:             month++;
-[e ++ _month -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 19:             (*month)++;
+[e ++ *U _month -> -> 1 `i `ui ]
 "20
-[; ;../MonthTracker.c: 20:             if (month == 13){
-[e $ ! == _month -> -> 13 `i `ui 2017  ]
+[; ;../MonthTracker.c: 20:             if (*month == 13){
+[e $ ! == *U _month -> -> 13 `i `ui 2017  ]
 {
 "21
-[; ;../MonthTracker.c: 21:                 month = 1;
-[e = _month -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 21:                 *month = 1;
+[e = *U _month -> -> 1 `i `ui ]
 "22
-[; ;../MonthTracker.c: 22:                 year++;
-[e ++ _year -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 22:                 (*year)++;
+[e ++ *U _year -> -> 1 `i `us ]
 "23
 [; ;../MonthTracker.c: 23:             }
 }
@@ -2021,22 +2021,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2016 ]
 "26
-[; ;../MonthTracker.c: 26:         if ((month == 4 || month == 6 || month == 9 || month == 11) && month_day == 31){
-[e $ ! && || || || == _month -> -> 4 `i `ui == _month -> -> 6 `i `ui == _month -> -> 9 `i `ui == _month -> -> 11 `i `ui == _month_day -> -> 31 `i `ui 2018  ]
+[; ;../MonthTracker.c: 26:         if ((*month == 4 || *month == 6 || *month == 9 || *month == 11) && *month_day == 31){
+[e $ ! && || || || == *U _month -> -> 4 `i `ui == *U _month -> -> 6 `i `ui == *U _month -> -> 9 `i `ui == *U _month -> -> 11 `i `ui == *U _month_day -> -> 31 `i `ui 2018  ]
 {
 "28
-[; ;../MonthTracker.c: 28:             month_day = 1;
-[e = _month_day -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 28:             *month_day = 1;
+[e = *U _month_day -> -> 1 `i `ui ]
 "29
-[; ;../MonthTracker.c: 29:             month++;
-[e ++ _month -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 29:             (*month)++;
+[e ++ *U _month -> -> 1 `i `ui ]
 "30
 [; ;../MonthTracker.c: 30:         }
 }
 [e :U 2018 ]
 "33
-[; ;../MonthTracker.c: 33:         if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {leap_year = 1;}
-[e $ ! || && == % _year -> -> 4 `i `ui -> -> 0 `i `ui != % _year -> -> 100 `i `ui -> -> 0 `i `ui == % _year -> -> 400 `i `ui -> -> 0 `i `ui 2019  ]
+[; ;../MonthTracker.c: 33:         if ((*year % 4 == 0 && *year % 100 != 0) || *year % 400 == 0) {leap_year = 1;}
+[e $ ! || && == % -> *U _year `ui -> -> 4 `i `ui -> -> 0 `i `ui != % -> *U _year `ui -> -> 100 `i `ui -> -> 0 `i `ui == % -> *U _year `ui -> -> 400 `i `ui -> -> 0 `i `ui 2019  ]
 {
 [e = _leap_year -> 1 `i ]
 }
@@ -2049,38 +2049,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2020 ]
 "36
-[; ;../MonthTracker.c: 36:         if (month == 2 && leap_year == 1){
-[e $ ! && == _month -> -> 2 `i `ui == _leap_year -> 1 `i 2021  ]
+[; ;../MonthTracker.c: 36:         if (*month == 2 && leap_year == 1){
+[e $ ! && == *U _month -> -> 2 `i `ui == _leap_year -> 1 `i 2021  ]
 {
 "38
-[; ;../MonthTracker.c: 38:             if (month_day == 30){
-[e $ ! == _month_day -> -> 30 `i `ui 2022  ]
+[; ;../MonthTracker.c: 38:             if (*month_day == 30){
+[e $ ! == *U _month_day -> -> 30 `i `ui 2022  ]
 {
 "39
-[; ;../MonthTracker.c: 39:                 month_day = 1;
-[e = _month_day -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 39:                 *month_day = 1;
+[e = *U _month_day -> -> 1 `i `ui ]
 "40
-[; ;../MonthTracker.c: 40:                 month++;
-[e ++ _month -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 40:                 (*month)++;
+[e ++ *U _month -> -> 1 `i `ui ]
 "41
 [; ;../MonthTracker.c: 41:             }
 }
 [e $U 2023  ]
 "42
-[; ;../MonthTracker.c: 42:             else if (month == 2 && leap_year ==0){
+[; ;../MonthTracker.c: 42:         else if (*month == 2 && leap_year == 0){
 [e :U 2022 ]
-[e $ ! && == _month -> -> 2 `i `ui == _leap_year -> 0 `i 2024  ]
+[e $ ! && == *U _month -> -> 2 `i `ui == _leap_year -> 0 `i 2024  ]
 {
 "43
-[; ;../MonthTracker.c: 43:             if (month_day == 29){
-[e $ ! == _month_day -> -> 29 `i `ui 2025  ]
+[; ;../MonthTracker.c: 43:             if (*month_day == 29){
+[e $ ! == *U _month_day -> -> 29 `i `ui 2025  ]
 {
 "44
-[; ;../MonthTracker.c: 44:                 month_day = 1;
-[e = _month_day -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 44:                 *month_day = 1;
+[e = *U _month_day -> -> 1 `i `ui ]
 "45
-[; ;../MonthTracker.c: 45:                 month++;
-[e ++ _month -> -> 1 `i `ui ]
+[; ;../MonthTracker.c: 45:                 (*month)++;
+[e ++ *U _month -> -> 1 `i `ui ]
 "46
 [; ;../MonthTracker.c: 46:                 }
 }
@@ -2094,10 +2094,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../MonthTracker.c: 51:         }
 }
 [e :U 2021 ]
-"53
-[; ;../MonthTracker.c: 53:         return (month, month_day);
-[e ) ; _month _month_day ]
-[e $UE 2015  ]
 "55
 [; ;../MonthTracker.c: 55:     }
 [e :UE 2015 ]

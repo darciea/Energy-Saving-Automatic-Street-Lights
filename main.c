@@ -6,7 +6,9 @@
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
+#include <stdio.h>
 #include "LEDarray.h" 
+#include "LCD.h"
 #include "interrupts.h"
 #include "comparator.h"
 #include "timers.h"
@@ -23,11 +25,13 @@ void main(void) {
    
     //manually initialise variables for when program starts
     unsigned int day = 2; //(0 = sunday,6 = sat)
-    unsigned int month = 11; //
-    unsigned int month_day = 29;
-    unsigned int year = 2022;
+    unsigned int month = 2; //
+    unsigned int month_day = 27;
+    unsigned short year = 2020;
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    char datestr[50];
+    char yearstr[20];
     
 
     Timer0_init();
@@ -37,8 +41,18 @@ void main(void) {
     Comp1_init();
     Light_init();
     ADC_init();
+    LCD_Init();
     
     while(1){
+        
+
+        LCD_setline(1); //Set Line 1
+        sprintf(datestr, "%d / %d", month_day, month);
+        LCD_sendstring(datestr);
+        LCD_setline(2); //Set Line 1
+        sprintf(yearstr, "%d / %d", day, year);
+        LCD_sendstring(yearstr);
+   
         
         if (minute == 60) { //trigger every time minute variable hits 60
             hour++; // increment hour by 1
@@ -47,9 +61,10 @@ void main(void) {
                 hour = 0; //reset for midnight
                 day++; //make it the next day
                 month_day++; //increment the date of the month
-                month, month_day = check_month(month, month_day, year); //function to ensure the date is incremented correctly
-                if (day == 7){day = 0;} //reset the day of the week 
-                
+                check_month(&month, &month_day, &year); //function to ensure the date is incremented correctly
+                if (day == 7){day = 0;} //reset the day of the week
+                LCD_clear();
+
                 
                  //below is the algorithm used to determine length of daylight using minute and hour values.
                 if (daylight_end_min >= daylight_start_min) {

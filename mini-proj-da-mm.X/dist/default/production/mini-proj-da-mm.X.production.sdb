@@ -3,34 +3,58 @@
 [d edition pro ]
 [d chip 18F67K40 ]
 [d frameptr 4065 ]
-"9 C:\Users\Matti\Documents\GitHub\ME4_ECM/lab-4-lcd-darciea-matti.X/LCD.c
-[v _LCD_E_TOG LCD_E_TOG `(v  1 e 1 0 ]
-"19
-[v _LCD_sendnibble LCD_sendnibble `(v  1 e 1 0 ]
-"36
-[v _LCD_sendbyte LCD_sendbyte `(v  1 e 1 0 ]
-"9 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/ADC.c
+"9 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/ADC.c
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
-"8 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/comparator.c
+"8 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/comparator.c
 [v _Light_init Light_init `(v  1 e 1 0 ]
 "14
 [v _DAC_init DAC_init `(v  1 e 1 0 ]
 "29
 [v _Comp1_init Comp1_init `(v  1 e 1 0 ]
-"11 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/interrupts.c
+"11 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 "23
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
-"8 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/LEDarray.c
+"9 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/LCD.c
+[v _LCD_E_TOG LCD_E_TOG `(v  1 e 1 0 ]
+"19
+[v _LCD_sendnibble LCD_sendnibble `(v  1 e 1 0 ]
+"36
+[v _LCD_sendbyte LCD_sendbyte `(v  1 e 1 0 ]
+"48
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+"87
+[v _LCD_clear LCD_clear `(v  1 e 1 0 ]
+"96
+[v _LCD_setline LCD_setline `(v  1 e 1 0 ]
+"105
+[v _LCD_sendstring LCD_sendstring `(v  1 e 1 0 ]
+"8 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/LEDarray.c
 [v _LEDarray_init LEDarray_init `(v  1 e 1 0 ]
 "37
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
-"22 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/main.c
+"24 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/main.c
 [v _main main `(v  1 e 1 0 ]
-"12 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/MonthTracker.c
-[v _check_month check_month `(ui  1 e 2 0 ]
-"7 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/timers.c
+"12 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/MonthTracker.c
+[v _check_month check_month `(v  1 e 1 0 ]
+"7 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
+"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+[v ___aodiv __aodiv `(o  1 e 8 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+[v ___aomod __aomod `(o  1 e 8 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+"133 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _pad pad `(v  1 s 1 pad ]
+"443
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+"1007
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1520
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
@@ -43,12 +67,22 @@
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -63,7 +97,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"11 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/interrupts.h
+"11 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/interrupts.h
 [v _hour hour `ui  1 e 2 0 ]
 "12
 [v _minute minute `ui  1 e 2 0 ]
@@ -290,7 +324,7 @@
 ]
 [u S378 . 1 `S360 1 . 1 0 `S369 1 . 1 0 ]
 [v _LATBbits LATBbits `VES378  1 e 1 @3962 ]
-[s S1105 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1138 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -300,7 +334,7 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "28720
-[s S1114 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1147 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -309,9 +343,9 @@
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1123 . 1 `S1105 1 . 1 0 `S1114 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1123  1 e 1 @3963 ]
-[s S1173 . 1 `uc 1 LATE0 1 0 :1:0 
+[u S1156 . 1 `S1138 1 . 1 0 `S1147 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1156  1 e 1 @3963 ]
+[s S1206 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 `uc 1 LATE3 1 0 :1:3 
@@ -321,7 +355,7 @@
 `uc 1 LATE7 1 0 :1:7 
 ]
 "28944
-[s S1182 . 1 `uc 1 LE0 1 0 :1:0 
+[s S1215 . 1 `uc 1 LE0 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 `uc 1 LE2 1 0 :1:2 
 `uc 1 LE3 1 0 :1:3 
@@ -330,8 +364,8 @@
 `uc 1 LE6 1 0 :1:6 
 `uc 1 LE7 1 0 :1:7 
 ]
-[u S1191 . 1 `S1173 1 . 1 0 `S1182 1 . 1 0 ]
-[v _LATEbits LATEbits `VES1191  1 e 1 @3965 ]
+[u S1224 . 1 `S1206 1 . 1 0 `S1215 1 . 1 0 ]
+[v _LATEbits LATEbits `VES1224  1 e 1 @3965 ]
 [s S320 . 1 `uc 1 LATF0 1 0 :1:0 
 `uc 1 LATF1 1 0 :1:1 
 `uc 1 LATF2 1 0 :1:2 
@@ -420,7 +454,7 @@
 "29474
 [u S234 . 1 `S225 1 . 1 0 ]
 [v _TRISBbits TRISBbits `VES234  1 e 1 @3970 ]
-[s S1213 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S1246 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -430,9 +464,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "29596
-[u S1222 . 1 `S1213 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES1222  1 e 1 @3971 ]
-[s S1246 . 1 `uc 1 TRISE0 1 0 :1:0 
+[u S1255 . 1 `S1246 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1255  1 e 1 @3971 ]
+[s S1279 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
@@ -442,8 +476,8 @@
 `uc 1 TRISE7 1 0 :1:7 
 ]
 "29840
-[u S1255 . 1 `S1246 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES1255  1 e 1 @3973 ]
+[u S1288 . 1 `S1279 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES1288  1 e 1 @3973 ]
 [s S204 . 1 `uc 1 TRISF0 1 0 :1:0 
 `uc 1 TRISF1 1 0 :1:1 
 `uc 1 TRISF2 1 0 :1:2 
@@ -480,29 +514,29 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
 "39327
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
-[s S1065 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S1093 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39601
-[s S1071 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S1099 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39601
-[u S1076 . 1 `S1065 1 . 1 0 `S1071 1 . 1 0 ]
+[u S1104 . 1 `S1093 1 . 1 0 `S1099 1 . 1 0 ]
 "39601
 "39601
-[v _T0CON0bits T0CON0bits `VES1076  1 e 1 @4053 ]
-[s S1019 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES1104  1 e 1 @4053 ]
+[s S1047 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39677
-[s S1023 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S1051 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -512,19 +546,19 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39677
-[s S1032 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1060 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39677
-[s S1037 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S1065 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39677
-[u S1039 . 1 `S1019 1 . 1 0 `S1023 1 . 1 0 `S1032 1 . 1 0 `S1037 1 . 1 0 ]
+[u S1067 . 1 `S1047 1 . 1 0 `S1051 1 . 1 0 `S1060 1 . 1 0 `S1065 1 . 1 0 ]
 "39677
 "39677
-[v _T0CON1bits T0CON1bits `VES1039  1 e 1 @4054 ]
+[v _T0CON1bits T0CON1bits `VES1067  1 e 1 @4054 ]
 [s S785 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
@@ -553,43 +587,186 @@
 [v _TMR0IE TMR0IE `VEb  1 e 0 @29005 ]
 "49186
 [v _TMR0IF TMR0IF `VEb  1 e 0 @29085 ]
-"22 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/main.c
+"99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"100
+[v _flags flags `uc  1 s 1 flags ]
+"125
+[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
+"24 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"27
-[v main@month_day month_day `ui  1 a 2 35 ]
-"25
-[v main@day day `ui  1 a 2 33 ]
-"26
-[v main@month month `ui  1 a 2 31 ]
+"33
+[v main@datestr datestr `[50]uc  1 a 50 25 ]
+"34
+[v main@yearstr yearstr `[20]uc  1 a 20 75 ]
 "29
-[v main@changed changed `ui  1 a 2 29 ]
-"30
-[v main@OneAmToFiveAmFlag OneAmToFiveAmFlag `ui  1 a 2 27 ]
+[v main@month_day month_day `ui  1 a 2 105 ]
 "28
-[v main@year year `ui  1 a 2 25 ]
-"90
+[v main@month month `ui  1 a 2 103 ]
+"27
+[v main@day day `ui  1 a 2 101 ]
+"30
+[v main@year year `us  1 a 2 99 ]
+"31
+[v main@changed changed `ui  1 a 2 97 ]
+"32
+[v main@OneAmToFiveAmFlag OneAmToFiveAmFlag `ui  1 a 2 95 ]
+"105
 } 0
-"12 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/MonthTracker.c
-[v _check_month check_month `(ui  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 {
-"14
-[v check_month@leap_year leap_year `i  1 a 2 19 ]
+[u S1796 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"13
+[s S1799 _IO_FILE 11 `S1796 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S1799  1 a 11 10 ]
 "12
-[v check_month@month month `ui  1 p 2 11 ]
-[v check_month@month_day month_day `ui  1 p 2 13 ]
-[v check_month@year year `ui  1 p 2 15 ]
-"55
+[v sprintf@ap ap `[1]*.39v  1 a 2 8 ]
+"9
+[v sprintf@s s `*.39uc  1 p 2 0 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
+"23
 } 0
-"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
+"1523
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 89 ]
+[s S1831 _IO_FILE 0 ]
+"1520
+[v vfprintf@fp fp `*.39S1831  1 p 2 83 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 85 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 87 ]
+"1543
+} 0
+"1007
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S1849 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+"1016
+[v vfpfcnvrt@convarg convarg `S1849  1 a 8 71 ]
+"1009
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 81 ]
+"1010
+[v vfpfcnvrt@done done `i  1 a 2 79 ]
+[s S1831 _IO_FILE 0 ]
+"1007
+[v vfpfcnvrt@fp fp `*.39S1831  1 p 2 62 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 64 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 66 ]
+"1517
+} 0
+"443
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+{
+"447
+[v dtoa@n n `o  1 a 8 51 ]
+"446
+[v dtoa@i i `i  1 a 2 59 ]
+[v dtoa@w w `i  1 a 2 49 ]
+[v dtoa@p p `i  1 a 2 47 ]
+"445
+[v dtoa@s s `uc  1 a 1 61 ]
+[s S1831 _IO_FILE 0 ]
+"443
+[v dtoa@fp fp `*.39S1831  1 p 2 27 ]
+[v dtoa@d d `o  1 p 8 29 ]
+"502
+} 0
+"133
+[v _pad pad `(v  1 s 1 pad ]
+{
+"135
+[v pad@w w `i  1 a 2 25 ]
+[v pad@i i `i  1 a 2 23 ]
+[s S1831 _IO_FILE 0 ]
+"133
+[v pad@fp fp `*.39S1831  1 p 2 16 ]
+[v pad@buf buf `*.39uc  1 p 2 18 ]
+[v pad@p p `i  1 p 2 20 ]
+"164
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 14 ]
 "10
-[v ___lwmod@counter counter `uc  1 a 1 10 ]
-"7
-[v ___lwmod@dividend dividend `ui  1 p 2 6 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
-"25
+[v fputs@c c `uc  1 a 1 13 ]
+"8
+[v fputs@s s `*.39Cuc  1 p 2 9 ]
+[u S1796 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1799 _IO_FILE 11 `S1796 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S1799  1 p 2 11 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 0 ]
+[u S1796 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1799 _IO_FILE 11 `S1796 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S1799  1 p 2 2 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 18 ]
+"4
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+[v ___aomod __aomod `(o  1 e 8 0 ]
+{
+"12
+[v ___aomod@sign sign `uc  1 a 1 17 ]
+[v ___aomod@counter counter `uc  1 a 1 16 ]
+"9
+[v ___aomod@dividend dividend `o  1 p 8 0 ]
+[v ___aomod@divisor divisor `o  1 p 8 8 ]
+"36
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+[v ___aodiv __aodiv `(o  1 e 8 0 ]
+{
+"12
+[v ___aodiv@quotient quotient `o  1 a 8 18 ]
+"13
+[v ___aodiv@sign sign `uc  1 a 1 17 ]
+[v ___aodiv@counter counter `uc  1 a 1 16 ]
+"9
+[v ___aodiv@dividend dividend `o  1 p 8 0 ]
+[v ___aodiv@divisor divisor `o  1 p 8 8 ]
+"43
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"6
+[v atoi@n n `i  1 a 2 13 ]
+[v atoi@neg neg `i  1 a 2 11 ]
+"4
+[v atoi@s s `*.32Cuc  1 p 2 6 ]
+"16
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+{
+[v isspace@c c `i  1 p 2 0 ]
+"8
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+{
+[v isdigit@c c `i  1 p 2 0 ]
+"8
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -600,6 +777,27 @@
 [v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
+} 0
+"12 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/MonthTracker.c
+[v _check_month check_month `(v  1 e 1 0 ]
+{
+"14
+[v check_month@leap_year leap_year `i  1 a 2 19 ]
+"12
+[v check_month@month month `*.39ui  1 p 2 11 ]
+[v check_month@month_day month_day `*.39ui  1 p 2 13 ]
+[v check_month@year year `*.39us  1 p 2 15 ]
+"52
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 10 ]
+"7
+[v ___lwmod@dividend dividend `ui  1 p 2 6 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+"25
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
@@ -613,17 +811,17 @@
 [v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
 "30
 } 0
-"7 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/timers.c
+"7 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 {
 "18
 } 0
-"8 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/comparator.c
+"8 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/comparator.c
 [v _Light_init Light_init `(v  1 e 1 0 ]
 {
 "12
 } 0
-"8 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/LEDarray.c
+"8 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/LEDarray.c
 [v _LEDarray_init LEDarray_init `(v  1 e 1 0 ]
 {
 "26
@@ -634,12 +832,61 @@
 [v LEDarray_disp_bin@number number `ui  1 p 2 0 ]
 "50
 } 0
-"11 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/interrupts.c
+"96 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/LCD.c
+[v _LCD_setline LCD_setline `(v  1 e 1 0 ]
+{
+[v LCD_setline@line line `uc  1 a 1 wreg ]
+[v LCD_setline@line line `uc  1 a 1 wreg ]
+"98
+[v LCD_setline@line line `uc  1 a 1 3 ]
+"100
+} 0
+"105
+[v _LCD_sendstring LCD_sendstring `(v  1 e 1 0 ]
+{
+[v LCD_sendstring@string string `*.39uc  1 p 2 3 ]
+"110
+} 0
+"87
+[v _LCD_clear LCD_clear `(v  1 e 1 0 ]
+{
+"91
+} 0
+"48
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+{
+"83
+} 0
+"36
+[v _LCD_sendbyte LCD_sendbyte `(v  1 e 1 0 ]
+{
+[v LCD_sendbyte@Byte Byte `uc  1 a 1 wreg ]
+[v LCD_sendbyte@Byte Byte `uc  1 a 1 wreg ]
+[v LCD_sendbyte@type type `uc  1 p 1 1 ]
+"38
+[v LCD_sendbyte@Byte Byte `uc  1 a 1 2 ]
+"43
+} 0
+"19
+[v _LCD_sendnibble LCD_sendnibble `(v  1 e 1 0 ]
+{
+[v LCD_sendnibble@number number `uc  1 a 1 wreg ]
+[v LCD_sendnibble@number number `uc  1 a 1 wreg ]
+"22
+[v LCD_sendnibble@number number `uc  1 a 1 0 ]
+"29
+} 0
+"9
+[v _LCD_E_TOG LCD_E_TOG `(v  1 e 1 0 ]
+{
+"14
+} 0
+"11 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 {
 "17
 } 0
-"29 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/comparator.c
+"29 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/comparator.c
 [v _Comp1_init Comp1_init `(v  1 e 1 0 ]
 {
 "40
@@ -649,12 +896,12 @@
 {
 "23
 } 0
-"9 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/ADC.c
+"9 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/ADC.c
 [v _ADC_init ADC_init `(v  1 e 1 0 ]
 {
 "21
 } 0
-"23 C:\Users\Matti\Documents\GitHub\ME4_ECM\mini-proj-da-mm.X/interrupts.c
+"23 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/interrupts.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
 "50

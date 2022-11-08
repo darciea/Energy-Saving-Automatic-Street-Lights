@@ -24239,6 +24239,152 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
 # 8 "../main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 9 "../main.c" 2
+
 # 1 "../LEDarray.h" 1
 
 
@@ -24253,7 +24399,21 @@ void RF2button_init(void);
 void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_PPM(unsigned int number, unsigned int max);
-# 9 "../main.c" 2
+# 10 "../main.c" 2
+
+# 1 "../LCD.h" 1
+# 17 "../LCD.h"
+void LCD_E_TOG(void);
+void LCD_sendnibble(unsigned char number);
+void LCD_sendbyte(unsigned char Byte, char type);
+void LCD_Init(void);
+void LCD_setline (char line);
+void LCD_sendstring(char *string);
+void LCD_scroll(void);
+void LCD_clear(void);
+void ADC2String(char *buf, unsigned int number);
+void LDR2String(char *val, unsigned int number);
+# 11 "../main.c" 2
 
 # 1 "../interrupts.h" 1
 
@@ -24277,7 +24437,7 @@ unsigned int daylight_end_hour = 0;
 unsigned int daylight_end_min = 0;
 unsigned int calculated_solar_noon_hour;
 unsigned int calculated_solar_noon_min;
-# 10 "../main.c" 2
+# 12 "../main.c" 2
 
 # 1 "../comparator.h" 1
 
@@ -24290,7 +24450,7 @@ unsigned int calculated_solar_noon_min;
 void DAC_init(void);
 void Comp1_init(void);
 void Light_init(void);
-# 11 "../main.c" 2
+# 13 "../main.c" 2
 
 # 1 "../timers.h" 1
 
@@ -24302,7 +24462,7 @@ void Light_init(void);
 
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
-# 12 "../main.c" 2
+# 14 "../main.c" 2
 
 # 1 "../ADC.h" 1
 
@@ -24314,12 +24474,12 @@ unsigned int get16bitTMR0val(void);
 
 void ADC_init(void);
 unsigned int ADC_getval(void);
-# 13 "../main.c" 2
+# 15 "../main.c" 2
 
 # 1 "../MonthTracker.h" 1
 # 15 "../MonthTracker.h"
-unsigned int check_month(unsigned int month, unsigned int month_day, unsigned int year);
-# 14 "../main.c" 2
+void check_month(unsigned int *month, unsigned int *month_day, unsigned int *year);
+# 16 "../main.c" 2
 
 
 
@@ -24332,11 +24492,13 @@ void main(void) {
 
 
     unsigned int day = 2;
-    unsigned int month = 11;
-    unsigned int month_day = 29;
-    unsigned int year = 2022;
+    unsigned int month = 2;
+    unsigned int month_day = 27;
+    unsigned short year = 2020;
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    char datestr[50];
+    char yearstr[20];
 
 
     Timer0_init();
@@ -24346,8 +24508,18 @@ void main(void) {
     Comp1_init();
     Light_init();
     ADC_init();
+    LCD_Init();
 
     while(1){
+
+
+        LCD_setline(1);
+        sprintf(datestr, "%d / %d", month_day, month);
+        LCD_sendstring(datestr);
+        LCD_setline(2);
+        sprintf(yearstr, "%d / %d", day, year);
+        LCD_sendstring(yearstr);
+
 
         if (minute == 60) {
             hour++;
@@ -24356,8 +24528,9 @@ void main(void) {
                 hour = 0;
                 day++;
                 month_day++;
-                month, month_day = check_month(month, month_day, year);
+                check_month(&month, &month_day, &year);
                 if (day == 7){day = 0;}
+                LCD_clear();
 
 
 
