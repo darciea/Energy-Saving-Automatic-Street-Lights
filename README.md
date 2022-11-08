@@ -7,7 +7,7 @@ To correctly start the program, you must first manually initialise the day (0 = 
 
 **"Main.c"**
 
-Within this file we have intitialised the date and all functions connected to hardware that we are using, e.g. the LED, the LDR, the LCD (optional) and others. We have decided to make our timer overflow every 'minute' (whether this 'minute' depends on testing mode or real-time depends on the value we set for the timer overflow, will be mentioned in the timers.c/h file'. Every time 60 minutes (i.e. an 'hour'), the minutes reset and the hours are incremented and displayed on the LED array. 
+Within this file we have intitialised the date and all functions connected to hardware that we are using, e.g. the LED, the LDR, the LCD (optional) and others. We have decided to make our timer overflow every 'minute' (whether this 'minute' is in testing mode or real-time depends on the value we set for the timer overflow, which will be explained in the timers.c/h file'. Every time 60 minutes (i.e. an 'hour'), the minutes reset and the hours are incremented and displayed on the LED array. 
 
 Once we reach the end of the day (24 hours), we will increment the days, both the day of the week (using 0 - 6 as representation) and the day of the month - the relation of this day to the rest of the year will be explained in the 'MonthTracker.c/h file'. Once the end of the week is reached, the week is reset. 
 
@@ -17,13 +17,13 @@ Code is then implemented to ensure that between the hours of 1am and 5am, the LE
 
 The program then checks for if it is Daylight Savings Time: 
   Daylight Savings time starts on the last Sunday of March 1am, where this Sunday must fall within the 25th and the 31st, and so an hour is skipped (i.e. the clocks go forward)
-   Daylight Savings time ends on the last Sunday of October 2am, so it is set to an hour behind, with a flag introduced to ensure that when it reaches the same time again, the hour is not changed but the flag is reset ready for the next year.
+   Daylight Savings time ends on the last Sunday of October 2am, so it is set to an hour behind, with a flag introduced to ensure that when it reaches the same time again, the hour is not changed but the flag is reset a couple hours later ready for the next year.
    
 We have additionally displayed the date on the LCD array to view the days and how it changes, however this is an optional feature.
    
 **"Timers.c/h"**
 
-This file initialises the timer to run and determines whether we are in testing mode or real time mode. In testing mode, the timer prescaler is set to 1:256 and so one hour corresponds to 1 second. In real time mode, the prescaler will be set to ...
+This file initialises the timer to run and determines whether we are in testing mode or real time mode. In testing mode, the timer prescaler is set to 1:4 and so one hour corresponds to 1 second. In real time mode, we want it to overflow every 60 seconds, so the prescaler will be set to 16384, where the timer overflows every 67.107 seconds. To ensure that it overflows every 60 seconds, we calculate that this prescaler counts to 58593.75 every 60 seconds, so we will initialise our TMR0H:TMR0L to the binary equivalent of 65535 - 58593.75 = 6941.25 ~ 6941. 
 
 
 **"Comparator.c/h"**
