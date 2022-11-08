@@ -1,5 +1,45 @@
 # Mini project - Energy saving automatic outside light
 
+## Explanation of our work
+To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year in the main.c file, and the hour and minute should be set in the interrupts.h file.
+
+**Key program files**
+
+**"Main.c"**
+
+Within this file we have intitialised the date and all functions connected to hardware that we are using, e.g. the LED, the LDR, the LCD (optional) and others. We have decided to make our timer overflow every 'minute' (whether this 'minute' depends on testing mode or real-time depends on the value we set for the timer overflow, will be mentioned in the timers.c/h file'. Every time 60 minutes (i.e. an 'hour'), the minutes reset and the hours are incremented and displayed on the LED array. 
+
+Once we reach the end of the day (24 hours), we will increment the days, both the day of the week (using 0 - 6 as representation) and the day of the month - the relation of this day to the rest of the year will be explained in the 'MonthTracker.c/h file'. Once the end of the week is reached, the week is reset. 
+
+Also at the end of every day, the length of daylight is calculated using the dawn and dusk triggered by the interrupt. This is then used to calculate the time at which solar noon occurred. Using the solar noon allows calibration of the timer with the sun.
+
+Code is then implemented to ensure that between the hours of 1am and 5am, the LED is turned off, regardless of whether there is ambient light or not. As 5am occurs, the code checks that it is still dark (i.e. the LED is required) before turning the light on, so that the light is not turned on if dawn occurs before 5am and the streetlight is not needed.
+
+The program then checks for if it is Daylight Savings Time: 
+  Daylight Savings time starts on the last Sunday of March 1am, where this Sunday must fall within the 25th and the 31st, and so an hour is skipped (i.e. the clocks go forward)
+   Daylight Savings time ends on the last Sunday of October 2am, so it is set to an hour behind, with a flag introduced to ensure that when it reaches the same time again, the hour is not changed but the flag is reset ready for the next year.
+   
+We have additionally displayed the date on the LCD array to view the days and how it changes, however this is an optional feature.
+   
+**"Timers.c/h"**
+
+This file initialises the timer to run and determines whether we are in testing mode or real time mode. In testing mode, the timer prescaler is set to 1:256 and so one hour corresponds to 1 second. In real time mode, the prescaler will be set to ...
+
+
+**"Comparator.c/h"**
+
+In this file, the LED light is initialised, as well as the comparator, set to recognise ambient light as one input. Here we have also set the comparator to trigger the interrupt on both the rising and falling edge.
+
+**"Interrupts.c/h"**
+
+Here we have declared global variables that are changed in the interrupt and variables required to track the dawn and the dusk in hours and minutes. We have two interrupts working, one being the timer interrupt that increments the minute variable every time it overflows. The other checks the state of the comparator once triggered (whether it went from light to dark, or dark to light) and logs time in hours and minutes accordingly to be processed later. It is also set to turn on the lights when it is dark at all hours except for 1am - 5am.
+
+**"MonthTracker.c/h"**
+
+Due to the code iterating the dates being quite bulky, they have been stored in another file and put into a function where arguments are passed. In order to avoid the use of global variables, this function utilises pointers, receiving the address of the day of the month, the month and the year and changing the pointers so that multiple variables can be adjusted as necessary. This function checks which month it is and resets the date of the month according to how many days that month should have e.g. October has 31 days, so when it is incremented to 32, the date is reset to the first and the month moves on to the next one. In December, the year is then incremented following the end of the month. There is also a flag introduced to check whether it is a leap year (if the year is divisible by 4, except in years that are divisible by 100, in which case the year is checked for if it is divisible by 400) and if it is a leap year February has 29 days, otherwise it has 28.
+
+
+
 ## Learning outcomes
 
 The principal learning objectives for this project are:
