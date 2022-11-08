@@ -3,9 +3,9 @@
 ## Explanation of our work
 To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year in the main.c file, and the hour and minute should be set in the interrupts.h file.
 
-Key program files
+**Key program files**
 
-"Main.c"
+**"Main.c"**
 
 Within this file we have intitialised the date and all functions connected to hardware that we are using, e.g. the LED, the LDR, the LCD (optional) and others. We have decided to make our timer overflow every 'minute' (whether this 'minute' depends on testing mode or real-time depends on the value we set for the timer overflow, will be mentioned in the timers.c/h file'. Every time 60 minutes (i.e. an 'hour'), the minutes reset and the hours are incremented and displayed on the LED array. 
 
@@ -21,20 +21,20 @@ The program then checks for if it is Daylight Savings Time:
    
 We have additionally displayed the date on the LCD array to view the days and how it changes, however this is an optional feature.
    
-Timers.c/h
+**"Timers.c/h"**
 
 This file initialises the timer to run and determines whether we are in testing mode or real time mode. In testing mode, the timer prescaler is set to 1:256 and so one hour corresponds to 1 second. In real time mode, the prescaler will be set to ...
 
 
-Comparator.c/h
+**"Comparator.c/h"**
 
 In this file, the LED light is initialised, as well as the comparator, set to recognise ambient light as one input. Here we have also set the comparator to trigger the interrupt on both the rising and falling edge.
 
-Interrupts.c/h
+**"Interrupts.c/h"**
 
 Here we have declared global variables that are changed in the interrupt and variables required to track the dawn and the dusk in hours and minutes. We have two interrupts working, one being the timer interrupt that increments the minute variable every time it overflows. The other checks the state of the comparator once triggered (whether it went from light to dark, or dark to light) and logs time in hours and minutes accordingly to be processed later. It is also set to turn on the lights when it is dark at all hours except for 1am - 5am.
 
-MonthTracker.c/h
+**"MonthTracker.c/h"**
 
 Due to the code iterating the dates being quite bulky, they have been stored in another file and put into a function where arguments are passed. In order to avoid the use of global variables, this function utilises pointers, receiving the address of the day of the month, the month and the year and changing the pointers so that multiple variables can be adjusted as necessary. This function checks which month it is and resets the date of the month according to how many days that month should have e.g. October has 31 days, so when it is incremented to 32, the date is reset to the first and the month moves on to the next one. In December, the year is then incremented following the end of the month. There is also a flag introduced to check whether it is a leap year (if the year is divisible by 4, except in years that are divisible by 100, in which case the year is checked for if it is divisible by 400) and if it is a leap year February has 29 days, otherwise it has 28.
 
