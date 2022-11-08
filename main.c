@@ -24,10 +24,10 @@
 void main(void) {
    
     //manually initialise variables for when program starts
-    unsigned int day = 2; //(0 = sunday,6 = sat)
-    unsigned int month = 2; //
-    unsigned int month_day = 27;
-    unsigned short year = 2020;
+    unsigned int day = 6; //(0 = sunday,6 = sat)
+    unsigned int month = 3; //
+    unsigned int month_day = 26;
+    unsigned short year = 2022;
     
     //flags to ensure changes aren't repeated and program accounts for uncommon eventualities 
     unsigned int changed = 0;
@@ -51,16 +51,15 @@ void main(void) {
         
 
         LCD_setline(1); //Set Line 1
-        sprintf(datestr, "%d / %d", month_day, month);
+        sprintf(datestr, "%d-%d-%d     %d", month_day, month, year, day);
         LCD_sendstring(datestr);
         LCD_setline(2); //Set Line 1
-        sprintf(yearstr, "%d / %d", day, year);
+        sprintf(yearstr, "%d:%d", hour, minute);
         LCD_sendstring(yearstr);
-   
+        LEDarray_disp_bin(hour); //display hour variable on LED array
         
         if (minute == 60) { //trigger every time minute variable hits 60
             hour++; // increment hour by 1
-            LEDarray_disp_bin(hour); //display hour variable on LED array
             minute = 0; //reset minute to 0
             if (hour == 24){ //at the end of the day
                 hour = 0; //reset for midnight
@@ -69,7 +68,7 @@ void main(void) {
                 check_month(&month, &month_day, &year); //function to ensure the date is incremented correctly
                 if (day == 7){day = 0;} //reset the day of the week
                 LCD_clear();
-
+              
                 
                  //below is the algorithm used to determine length of daylight using minute and hour values.
                 if (daylight_end_min >= daylight_start_min) {
@@ -84,7 +83,8 @@ void main(void) {
                 calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
                 
                 //if calculated solar noon is not equal to 12:00, adjust time to correct for this
-            } 
+            }
+            LEDarray_disp_bin(hour); //display hour variable on LED array  
         }
               
         if (hour >= 1 && hour < 5){ //check whether we are in the 1-5am zone.
@@ -99,9 +99,10 @@ void main(void) {
         
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) { //when daylight savings time ends, minus 1 hour
             hour--; //go back one hour
+            LEDarray_disp_bin(hour); //display hour variable on LED array
             changed = 1; //flag to ensure that the clock doesn't go back again
         }
-        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        else if (day == 1 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
         
     }
 }

@@ -24242,8 +24242,8 @@ unsigned char __t3rd16on(void);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 0;
-unsigned int minute = 0;
+unsigned int hour = 21;
+unsigned int minute = 15;
 
 unsigned int current_day_hour = 0;
 unsigned int current_day_min = 0;
@@ -24274,6 +24274,9 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
     if (TMR0IF) {
         TMR0H=0b00001011;
         TMR0L=0b00001011;
+
+
+
         minute += 1;
         TMR0IF=0;
     }
@@ -24290,7 +24293,8 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
         if (hour <1 || hour >=5){
             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
             else {LATHbits.LATH3=0;}
-            LATHbits.LATH3=1;}
+
+        }
         }
         PIR2bits.C1IF=0;
     }

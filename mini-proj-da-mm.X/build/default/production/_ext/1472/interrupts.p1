@@ -2068,16 +2068,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 0;
+[; ;../interrupts.h: 11: unsigned int hour = 21;
 [v _hour `ui ~T0 @X0 1 e ]
 [i _hour
--> -> 0 `i `ui
+-> -> 21 `i `ui
 ]
 "12
-[; ;../interrupts.h: 12: unsigned int minute = 0;
+[; ;../interrupts.h: 12: unsigned int minute = 15;
 [v _minute `ui ~T0 @X0 1 e ]
 [i _minute
--> -> 0 `i `ui
+-> -> 15 `i `ui
 ]
 "14
 [; ;../interrupts.h: 14: unsigned int current_day_hour = 0;
@@ -2161,84 +2161,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;../interrupts.c: 29:         TMR0L=0b00001011;
 [e = _TMR0L -> -> 11 `i `uc ]
-"30
-[; ;../interrupts.c: 30:         minute += 1;
+"33
+[; ;../interrupts.c: 33:         minute += 1;
 [e =+ _minute -> -> 1 `i `ui ]
-"31
-[; ;../interrupts.c: 31:         TMR0IF=0;
+"34
+[; ;../interrupts.c: 34:         TMR0IF=0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"32
-[; ;../interrupts.c: 32:     }
+"35
+[; ;../interrupts.c: 35:     }
 }
 [e :U 2017 ]
-"34
-[; ;../interrupts.c: 34:     if (PIR2bits.C1IF){
+"37
+[; ;../interrupts.c: 37:     if (PIR2bits.C1IF){
 [e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2018  ]
 {
-"35
-[; ;../interrupts.c: 35:         if (CM1CON0bits.OUT == 0) {
+"38
+[; ;../interrupts.c: 38:         if (CM1CON0bits.OUT == 0) {
 [e $ ! == -> . . _CM1CON0bits 0 5 `i -> 0 `i 2019  ]
 {
-"36
-[; ;../interrupts.c: 36:             daylight_start_hour = hour;
-[e = _daylight_start_hour _hour ]
-"37
-[; ;../interrupts.c: 37:             daylight_start_min = minute;
-[e = _daylight_start_min _minute ]
-"38
-[; ;../interrupts.c: 38:             LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "39
-[; ;../interrupts.c: 39:             }
+[; ;../interrupts.c: 39:             daylight_start_hour = hour;
+[e = _daylight_start_hour _hour ]
+"40
+[; ;../interrupts.c: 40:             daylight_start_min = minute;
+[e = _daylight_start_min _minute ]
+"41
+[; ;../interrupts.c: 41:             LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"42
+[; ;../interrupts.c: 42:             }
 }
 [e $U 2020  ]
-"40
-[; ;../interrupts.c: 40:         else if (CM1CON0bits.OUT == 1){
+"43
+[; ;../interrupts.c: 43:         else if (CM1CON0bits.OUT == 1){
 [e :U 2019 ]
 [e $ ! == -> . . _CM1CON0bits 0 5 `i -> 1 `i 2021  ]
 {
-"41
-[; ;../interrupts.c: 41:             daylight_end_hour = hour;
+"44
+[; ;../interrupts.c: 44:             daylight_end_hour = hour;
 [e = _daylight_end_hour _hour ]
-"42
-[; ;../interrupts.c: 42:             daylight_end_min = minute;
+"45
+[; ;../interrupts.c: 45:             daylight_end_min = minute;
 [e = _daylight_end_min _minute ]
-"43
-[; ;../interrupts.c: 43:         if (hour <1 || hour >=5){
+"46
+[; ;../interrupts.c: 46:         if (hour <1 || hour >=5){
 [e $ ! || < _hour -> -> 1 `i `ui >= _hour -> -> 5 `i `ui 2022  ]
 {
-"44
-[; ;../interrupts.c: 44:             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
+"47
+[; ;../interrupts.c: 47:             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
 [e $ ! == -> . . _CM1CON0bits 0 5 `i -> 1 `i 2023  ]
 {
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 }
 [e $U 2024  ]
-"45
-[; ;../interrupts.c: 45:             else {LATHbits.LATH3=0;}
+"48
+[; ;../interrupts.c: 48:             else {LATHbits.LATH3=0;}
 [e :U 2023 ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2024 ]
-"46
-[; ;../interrupts.c: 46:             LATHbits.LATH3=1;}
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+"50
+[; ;../interrupts.c: 50:         }
 }
 [e :U 2022 ]
-"47
-[; ;../interrupts.c: 47:         }
+"51
+[; ;../interrupts.c: 51:         }
 }
 [e :U 2021 ]
 [e :U 2020 ]
-"48
-[; ;../interrupts.c: 48:         PIR2bits.C1IF=0;
+"52
+[; ;../interrupts.c: 52:         PIR2bits.C1IF=0;
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
-"49
-[; ;../interrupts.c: 49:     }
+"53
+[; ;../interrupts.c: 53:     }
 }
 [e :U 2018 ]
-"50
-[; ;../interrupts.c: 50: }
+"54
+[; ;../interrupts.c: 54: }
 [e :UE 2016 ]
 }

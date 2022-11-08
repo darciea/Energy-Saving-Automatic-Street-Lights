@@ -596,22 +596,22 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "37
-[v main@datestr datestr `[50]uc  1 a 50 25 ]
+[v main@datestr datestr `[50]uc  1 a 50 29 ]
 "38
-[v main@yearstr yearstr `[20]uc  1 a 20 75 ]
+[v main@yearstr yearstr `[20]uc  1 a 20 79 ]
 "29
-[v main@month_day month_day `ui  1 a 2 105 ]
+[v main@month_day month_day `ui  1 a 2 109 ]
 "28
-[v main@month month `ui  1 a 2 103 ]
+[v main@month month `ui  1 a 2 107 ]
 "27
-[v main@day day `ui  1 a 2 101 ]
+[v main@day day `ui  1 a 2 105 ]
 "30
-[v main@year year `us  1 a 2 99 ]
+[v main@year year `us  1 a 2 103 ]
 "33
-[v main@changed changed `ui  1 a 2 97 ]
+[v main@changed changed `ui  1 a 2 101 ]
 "34
-[v main@OneAmToFiveAmFlag OneAmToFiveAmFlag `ui  1 a 2 95 ]
-"107
+[v main@OneAmToFiveAmFlag OneAmToFiveAmFlag `ui  1 a 2 99 ]
+"108
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -619,9 +619,9 @@
 [u S1794 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
 [s S1797 _IO_FILE 11 `S1794 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1797  1 a 11 10 ]
+[v sprintf@f f `S1797  1 a 11 14 ]
 "12
-[v sprintf@ap ap `[1]*.39v  1 a 2 8 ]
+[v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
 "9
 [v sprintf@s s `*.39uc  1 p 2 0 ]
 [v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
@@ -812,7 +812,7 @@
 "7 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
 {
-"18
+"23
 } 0
 "8 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/comparator.c
 [v _Light_init Light_init `(v  1 e 1 0 ]
@@ -897,5 +897,5 @@
 "23 C:\Users\darci\Documents\ECM\mini-proj-da-mm.X/interrupts.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
-"50
+"54
 } 0

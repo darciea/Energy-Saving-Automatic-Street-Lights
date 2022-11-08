@@ -2063,16 +2063,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 0;
+[; ;../interrupts.h: 11: unsigned int hour = 21;
 [v _hour `ui ~T0 @X0 1 e ]
 [i _hour
--> -> 0 `i `ui
+-> -> 21 `i `ui
 ]
 "12
-[; ;../interrupts.h: 12: unsigned int minute = 0;
+[; ;../interrupts.h: 12: unsigned int minute = 15;
 [v _minute `ui ~T0 @X0 1 e ]
 [i _minute
--> -> 0 `i `ui
+-> -> 15 `i `ui
 ]
 "14
 [; ;../interrupts.h: 14: unsigned int current_day_hour = 0;
@@ -2124,21 +2124,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "27
-[; ;../main.c: 27:     unsigned int day = 2;
+[; ;../main.c: 27:     unsigned int day = 6;
 [v _day `ui ~T0 @X0 1 a ]
-[e = _day -> -> 2 `i `ui ]
+[e = _day -> -> 6 `i `ui ]
 "28
-[; ;../main.c: 28:     unsigned int month = 2;
+[; ;../main.c: 28:     unsigned int month = 3;
 [v _month `ui ~T0 @X0 1 a ]
-[e = _month -> -> 2 `i `ui ]
+[e = _month -> -> 3 `i `ui ]
 "29
-[; ;../main.c: 29:     unsigned int month_day = 27;
+[; ;../main.c: 29:     unsigned int month_day = 26;
 [v _month_day `ui ~T0 @X0 1 a ]
-[e = _month_day -> -> 27 `i `ui ]
+[e = _month_day -> -> 26 `i `ui ]
 "30
-[; ;../main.c: 30:     unsigned short year = 2020;
+[; ;../main.c: 30:     unsigned short year = 2022;
 [v _year `us ~T0 @X0 1 a ]
-[e = _year -> -> 2020 `i `us ]
+[e = _year -> -> 2022 `i `us ]
 "33
 [; ;../main.c: 33:     unsigned int changed = 0;
 [v _changed `ui ~T0 @X0 1 a ]
@@ -2182,8 +2182,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 53:         LCD_setline(1);
 [e ( _LCD_setline (1 -> -> 1 `i `uc ]
 "54
-[; ;../main.c: 54:         sprintf(datestr, "%d / %d", month_day, month);
-[e ( _sprintf (1 , , (. , &U _datestr :s 1C _month_day _month ]
+[; ;../main.c: 54:         sprintf(datestr, "%d-%d-%d     %d", month_day, month, year, day);
+[e ( _sprintf (1 , , , , (. , &U _datestr :s 1C _month_day _month -> _year `ui _day ]
 "55
 [; ;../main.c: 55:         LCD_sendstring(datestr);
 [e ( _LCD_sendstring (1 &U _datestr ]
@@ -2191,11 +2191,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 56:         LCD_setline(2);
 [e ( _LCD_setline (1 -> -> 2 `i `uc ]
 "57
-[; ;../main.c: 57:         sprintf(yearstr, "%d / %d", day, year);
-[e ( _sprintf (1 , , (. , &U _yearstr :s 2C _day -> _year `ui ]
+[; ;../main.c: 57:         sprintf(yearstr, "%d:%d", hour, minute);
+[e ( _sprintf (1 , , (. , &U _yearstr :s 2C _hour _minute ]
 "58
 [; ;../main.c: 58:         LCD_sendstring(yearstr);
 [e ( _LCD_sendstring (1 &U _yearstr ]
+"59
+[; ;../main.c: 59:         LEDarray_disp_bin(hour);
+[e ( _LEDarray_disp_bin (1 _hour ]
 "61
 [; ;../main.c: 61:         if (minute == 60) {
 [e $ ! == _minute -> -> 60 `i `ui 2021  ]
@@ -2204,73 +2207,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 62:             hour++;
 [e ++ _hour -> -> 1 `i `ui ]
 "63
-[; ;../main.c: 63:             LEDarray_disp_bin(hour);
-[e ( _LEDarray_disp_bin (1 _hour ]
-"64
-[; ;../main.c: 64:             minute = 0;
+[; ;../main.c: 63:             minute = 0;
 [e = _minute -> -> 0 `i `ui ]
-"65
-[; ;../main.c: 65:             if (hour == 24){
+"64
+[; ;../main.c: 64:             if (hour == 24){
 [e $ ! == _hour -> -> 24 `i `ui 2022  ]
 {
-"66
-[; ;../main.c: 66:                 hour = 0;
+"65
+[; ;../main.c: 65:                 hour = 0;
 [e = _hour -> -> 0 `i `ui ]
-"67
-[; ;../main.c: 67:                 day++;
+"66
+[; ;../main.c: 66:                 day++;
 [e ++ _day -> -> 1 `i `ui ]
-"68
-[; ;../main.c: 68:                 month_day++;
+"67
+[; ;../main.c: 67:                 month_day++;
 [e ++ _month_day -> -> 1 `i `ui ]
-"69
-[; ;../main.c: 69:                 check_month(&month, &month_day, &year);
+"68
+[; ;../main.c: 68:                 check_month(&month, &month_day, &year);
 [e ( _check_month (3 , , &U _month &U _month_day -> &U _year `*ui ]
-"70
-[; ;../main.c: 70:                 if (day == 7){day = 0;}
+"69
+[; ;../main.c: 69:                 if (day == 7){day = 0;}
 [e $ ! == _day -> -> 7 `i `ui 2023  ]
 {
 [e = _day -> -> 0 `i `ui ]
 }
 [e :U 2023 ]
-"71
-[; ;../main.c: 71:                 LCD_clear();
+"70
+[; ;../main.c: 70:                 LCD_clear();
 [e ( _LCD_clear ..  ]
-"75
-[; ;../main.c: 75:                 if (daylight_end_min >= daylight_start_min) {
+"74
+[; ;../main.c: 74:                 if (daylight_end_min >= daylight_start_min) {
 [e $ ! >= _daylight_end_min _daylight_start_min 2024  ]
 {
-"76
-[; ;../main.c: 76:                     current_day_min = daylight_end_min - daylight_start_min;
+"75
+[; ;../main.c: 75:                     current_day_min = daylight_end_min - daylight_start_min;
 [e = _current_day_min - _daylight_end_min _daylight_start_min ]
-"77
-[; ;../main.c: 77:                     current_day_hour = daylight_end_hour - daylight_start_hour;}
+"76
+[; ;../main.c: 76:                     current_day_hour = daylight_end_hour - daylight_start_hour;}
 [e = _current_day_hour - _daylight_end_hour _daylight_start_hour ]
 }
 [e $U 2025  ]
-"78
-[; ;../main.c: 78:                 else {
+"77
+[; ;../main.c: 77:                 else {
 [e :U 2024 ]
 {
-"79
-[; ;../main.c: 79:                     current_day_min = daylight_end_min + (60-daylight_start_min);
+"78
+[; ;../main.c: 78:                     current_day_min = daylight_end_min + (60-daylight_start_min);
 [e = _current_day_min + _daylight_end_min - -> -> 60 `i `ui _daylight_start_min ]
-"80
-[; ;../main.c: 80:                     current_day_hour = daylight_end_hour - daylight_start_hour - 1;
+"79
+[; ;../main.c: 79:                     current_day_hour = daylight_end_hour - daylight_start_hour - 1;
 [e = _current_day_hour - - _daylight_end_hour _daylight_start_hour -> -> 1 `i `ui ]
-"81
-[; ;../main.c: 81:                 }
+"80
+[; ;../main.c: 80:                 }
 }
 [e :U 2025 ]
-"83
-[; ;../main.c: 83:                 calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
+"82
+[; ;../main.c: 82:                 calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
 [e = _calculated_solar_noon_hour / + + + * _daylight_start_hour -> -> 60 `i `ui _daylight_start_min * _current_day_hour -> -> 60 `i `ui _current_day_min -> -> 60 `i `ui ]
-"84
-[; ;../main.c: 84:                 calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
+"83
+[; ;../main.c: 83:                 calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
 [e = _calculated_solar_noon_min % + + + * _daylight_start_hour -> -> 60 `i `ui _daylight_start_min * _current_day_hour -> -> 60 `i `ui _current_day_min -> -> 60 `i `ui ]
-"87
-[; ;../main.c: 87:             }
+"86
+[; ;../main.c: 86:             }
 }
 [e :U 2022 ]
+"87
+[; ;../main.c: 87:             LEDarray_disp_bin(hour);
+[e ( _LEDarray_disp_bin (1 _hour ]
 "88
 [; ;../main.c: 88:         }
 }
@@ -2314,31 +2317,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 101:             hour--;
 [e -- _hour -> -> 1 `i `ui ]
 "102
-[; ;../main.c: 102:             changed = 1;
-[e = _changed -> -> 1 `i `ui ]
+[; ;../main.c: 102:             LEDarray_disp_bin(hour);
+[e ( _LEDarray_disp_bin (1 _hour ]
 "103
-[; ;../main.c: 103:         }
+[; ;../main.c: 103:             changed = 1;
+[e = _changed -> -> 1 `i `ui ]
+"104
+[; ;../main.c: 104:         }
 }
 [e $U 2030  ]
-"104
-[; ;../main.c: 104:         else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+"105
+[; ;../main.c: 105:         else if (day == 1 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
 [e :U 2029 ]
-[e $ ! && && && && && && == _day -> -> 0 `i `ui == _month -> -> 10 `i `ui == _hour -> -> 2 `i `ui == _minute -> -> 0 `i `ui >= _month_day -> -> 25 `i `ui <= _month_day -> -> 31 `i `ui == _changed -> -> 1 `i `ui 2031  ]
+[e $ ! && && && && && && == _day -> -> 1 `i `ui == _month -> -> 10 `i `ui == _hour -> -> 2 `i `ui == _minute -> -> 0 `i `ui >= _month_day -> -> 25 `i `ui <= _month_day -> -> 31 `i `ui == _changed -> -> 1 `i `ui 2031  ]
 {
 [e = _changed -> -> 0 `i `ui ]
 }
 [e :U 2031 ]
 [e :U 2030 ]
-"106
-[; ;../main.c: 106:     }
+"107
+[; ;../main.c: 107:     }
 }
 [e :U 2018 ]
 [e $U 2019  ]
 [e :U 2020 ]
-"107
-[; ;../main.c: 107: }
+"108
+[; ;../main.c: 108: }
 [e :UE 2017 ]
 }
 [p f _sprintf 8388736 ]
-[a 1C 37 100 32 47 32 37 100 0 ]
-[a 2C 37 100 32 47 32 37 100 0 ]
+[a 2C 37 100 58 37 100 0 ]
+[a 1C 37 100 45 37 100 45 37 100 32 32 32 32 32 37 100 0 ]

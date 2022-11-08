@@ -24426,8 +24426,8 @@ void LDR2String(char *val, unsigned int number);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 0;
-unsigned int minute = 0;
+unsigned int hour = 21;
+unsigned int minute = 15;
 
 unsigned int current_day_hour = 0;
 unsigned int current_day_min = 0;
@@ -24480,10 +24480,10 @@ void check_month(unsigned int *month, unsigned int *month_day, unsigned int *yea
 void main(void) {
 
 
-    unsigned int day = 2;
-    unsigned int month = 2;
-    unsigned int month_day = 27;
-    unsigned short year = 2020;
+    unsigned int day = 6;
+    unsigned int month = 3;
+    unsigned int month_day = 26;
+    unsigned short year = 2022;
 
 
     unsigned int changed = 0;
@@ -24507,16 +24507,15 @@ void main(void) {
 
 
         LCD_setline(1);
-        sprintf(datestr, "%d / %d", month_day, month);
+        sprintf(datestr, "%d-%d-%d     %d", month_day, month, year, day);
         LCD_sendstring(datestr);
         LCD_setline(2);
-        sprintf(yearstr, "%d / %d", day, year);
+        sprintf(yearstr, "%d:%d", hour, minute);
         LCD_sendstring(yearstr);
-
+        LEDarray_disp_bin(hour);
 
         if (minute == 60) {
             hour++;
-            LEDarray_disp_bin(hour);
             minute = 0;
             if (hour == 24){
                 hour = 0;
@@ -24541,6 +24540,7 @@ void main(void) {
 
 
             }
+            LEDarray_disp_bin(hour);
         }
 
         if (hour >= 1 && hour < 5){
@@ -24555,9 +24555,10 @@ void main(void) {
 
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
             hour--;
+            LEDarray_disp_bin(hour);
             changed = 1;
         }
-        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        else if (day == 1 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
 
     }
 }
