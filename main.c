@@ -102,7 +102,7 @@ void main(void) {
             LEDarray_disp_bin(hour); //display hour variable on LED array
             changed = 1; //flag to ensure that the clock doesn't go back again
         }
-        else if (day == 1 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        else if (day == 0 && month == 10 && hour == 4 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
         
     }
 }
