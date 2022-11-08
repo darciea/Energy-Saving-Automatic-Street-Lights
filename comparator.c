@@ -9,6 +9,8 @@ void Light_init(void)
 {
    LATHbits.LATH3=1;   //set as initial output state
    TRISHbits.TRISH3=0; //set TRIS value for pin (output)
+   LATDbits.LATD7=0;   //set as initial output state
+   TRISDbits.TRISD7=0; //set TRIS value for pin (output)
 }
 
 void DAC_init(void)

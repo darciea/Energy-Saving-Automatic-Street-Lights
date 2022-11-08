@@ -46,7 +46,6 @@ void __interrupt(high_priority) HighISR()
         if (hour <1 || hour >=5){ //check whether we are outside the 1-5am zone
             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;} //check if the change is falling edge. If so, change LED to on
             else {LATHbits.LATH3=0;} //if not, assume change has been rising edge and turn LED off
-            //LATHbits.LATH3=1; //turn on LED
         }
         }
         PIR2bits.C1IF=0; //clear the interrupt flag

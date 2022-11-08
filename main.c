@@ -32,6 +32,7 @@ void main(void) {
     //flags to ensure changes aren't repeated and program accounts for uncommon eventualities 
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    unsigned int daily_correction = 0;
     
     //space made for strings to show variables on the LCD screen
     char datestr[50];
@@ -60,15 +61,10 @@ void main(void) {
         
         if (minute == 60) { //trigger every time minute variable hits 60
             hour++; // increment hour by 1
+            LEDarray_disp_bin(hour); //display hour variable on LED array
             minute = 0; //reset minute to 0
             if (hour == 24){ //at the end of the day
                 hour = 0; //reset for midnight
-                day++; //make it the next day
-                month_day++; //increment the date of the month
-                check_month(&month, &month_day, &year); //function to ensure the date is incremented correctly
-                if (day == 7){day = 0;} //reset the day of the week
-                LCD_clear();
-              
                 
                  //below is the algorithm used to determine length of daylight using minute and hour values.
                 if (daylight_end_min >= daylight_start_min) {
@@ -76,13 +72,34 @@ void main(void) {
                     current_day_hour = daylight_end_hour - daylight_start_hour;}
                 else {
                     current_day_min = daylight_end_min + (60-daylight_start_min);
-                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;
-                }
+                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;}
+                
                 //now determine the time at which solar noon occurred
-                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
-                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
+                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)/60;
+                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)%60;
                 
                 //if calculated solar noon is not equal to 12:00, adjust time to correct for this
+                if (calculated_solar_noon_hour >= 12 && calculated_solar_noon_min != 0 && daily_correction == 0) {
+                    daily_correction = 1;
+                    LATDbits.LATD7=1;
+                    hour = 23 - (calculated_solar_noon_hour - 12);
+                    minute = 60 - calculated_solar_noon_min;
+                }
+                else if (calculated_solar_noon_hour < 12){
+                   hour = 11 - calculated_solar_noon_hour;
+                   minute = 60 - calculated_solar_noon_min;
+                }
+                else if (hour == 0 && daily_correction == 1){daily_correction = 0;
+                    LATDbits.LATD7=0;}
+                
+                if (daily_correction != 1){
+                day++; //make it the next day
+                month_day++; //increment the date of the month
+                check_month(&month, &month_day, &year); //function to ensure the date is incremented correctly
+                if (day == 7){day = 0;} //reset the day of the week
+                LCD_clear();
+                }
+                
             }
             LEDarray_disp_bin(hour); //display hour variable on LED array  
         }
@@ -93,13 +110,11 @@ void main(void) {
         if (hour == 5 && OneAmToFiveAmFlag == 1 && CM1CON0bits.OUT == 1){ // as the time exits the 1am to 5am zone, check that it is still dark, and use the flag...
                 LATHbits.LATH3=1; // to trigger the LED coming back on
                 OneAmToFiveAmFlag = 0;} // and reset the flag so that it doesn't get turned on continuously
-        
- 
+       
         if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;} //when daylight savings time starts, add one hour
         
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) { //when daylight savings time ends, minus 1 hour
             hour--; //go back one hour
-            LEDarray_disp_bin(hour); //display hour variable on LED array
             changed = 1; //flag to ensure that the clock doesn't go back again
         }
         else if (day == 0 && month == 10 && hour == 4 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}

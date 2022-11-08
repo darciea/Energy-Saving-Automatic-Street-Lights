@@ -2221,23 +2221,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2024 ]
+"49
+[; ;../interrupts.c: 49:         }
+}
+[e :U 2022 ]
 "50
 [; ;../interrupts.c: 50:         }
 }
-[e :U 2022 ]
-"51
-[; ;../interrupts.c: 51:         }
-}
 [e :U 2021 ]
 [e :U 2020 ]
-"52
-[; ;../interrupts.c: 52:         PIR2bits.C1IF=0;
+"51
+[; ;../interrupts.c: 51:         PIR2bits.C1IF=0;
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
-"53
-[; ;../interrupts.c: 53:     }
+"52
+[; ;../interrupts.c: 52:     }
 }
 [e :U 2018 ]
-"54
-[; ;../interrupts.c: 54: }
+"53
+[; ;../interrupts.c: 53: }
 [e :UE 2016 ]
 }

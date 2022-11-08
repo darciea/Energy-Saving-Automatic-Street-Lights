@@ -24293,7 +24293,6 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
         if (hour <1 || hour >=5){
             if (CM1CON0bits.OUT == 1) {LATHbits.LATH3=1;}
             else {LATHbits.LATH3=0;}
-
         }
         }
         PIR2bits.C1IF=0;

@@ -41,6 +41,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30072
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30072: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
 [v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
+"28811
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
+[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"28821
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28821:     struct {
+[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"28810
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28810: typedef union {
+[u S1348 `S1349 1 `S1350 1 ]
+[n S1348 . . . ]
+"28832
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28832: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
+[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
+"29707
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29707:     struct {
+[s S1380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1380 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"29706
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29706: typedef union {
+[u S1379 `S1380 1 ]
+[n S1379 . . ]
+"29718
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
+[v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
 "13298
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 13298:     struct {
 [s S607 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2143,69 +2169,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../comparator.c: 11:    TRISHbits.TRISH3=0;
 [e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "12
-[; ;../comparator.c: 12: }
+[; ;../comparator.c: 12:    LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"13
+[; ;../comparator.c: 13:    TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"14
+[; ;../comparator.c: 14: }
 [e :UE 2015 ]
 }
-"14
-[; ;../comparator.c: 14: void DAC_init(void)
+"16
+[; ;../comparator.c: 16: void DAC_init(void)
 [v _DAC_init `(v ~T0 @X0 1 ef ]
-"15
-[; ;../comparator.c: 15: {
+"17
+[; ;../comparator.c: 17: {
 {
 [e :U _DAC_init ]
 [f ]
-"16
-[; ;../comparator.c: 16:     DAC1CON0bits.PSS=0b00;
+"18
+[; ;../comparator.c: 18:     DAC1CON0bits.PSS=0b00;
 [e = . . _DAC1CON0bits 0 2 -> -> 0 `i `uc ]
-"17
-[; ;../comparator.c: 17:     DAC1CON0bits.NSS=0b0;
+"19
+[; ;../comparator.c: 19:     DAC1CON0bits.NSS=0b0;
 [e = . . _DAC1CON0bits 0 0 -> -> 0 `i `uc ]
-"21
-[; ;../comparator.c: 21:     DAC1CON1bits.DAC1R=27;
-[e = . . _DAC1CON1bits 0 0 -> -> 27 `i `uc ]
-"22
-[; ;../comparator.c: 22:     DAC1CON0bits.DAC1EN=1;
-[e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]
 "23
-[; ;../comparator.c: 23: }
+[; ;../comparator.c: 23:     DAC1CON1bits.DAC1R=27;
+[e = . . _DAC1CON1bits 0 0 -> -> 27 `i `uc ]
+"24
+[; ;../comparator.c: 24:     DAC1CON0bits.DAC1EN=1;
+[e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]
+"25
+[; ;../comparator.c: 25: }
 [e :UE 2016 ]
 }
-"29
-[; ;../comparator.c: 29: void Comp1_init(void)
+"31
+[; ;../comparator.c: 31: void Comp1_init(void)
 [v _Comp1_init `(v ~T0 @X0 1 ef ]
-"30
-[; ;../comparator.c: 30: {
+"32
+[; ;../comparator.c: 32: {
 {
 [e :U _Comp1_init ]
 [f ]
-"31
-[; ;../comparator.c: 31:     TRISAbits.TRISA3=1;
-[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
-"32
-[; ;../comparator.c: 32:     CM1NCHbits.NCH=0b011;
-[e = . . _CM1NCHbits 0 0 -> -> 3 `i `uc ]
 "33
-[; ;../comparator.c: 33:     CM1PCHbits.PCH=0b101;
-[e = . . _CM1PCHbits 0 0 -> -> 5 `i `uc ]
+[; ;../comparator.c: 33:     TRISAbits.TRISA3=1;
+[e = . . _TRISAbits 0 3 -> -> 1 `i `uc ]
 "34
-[; ;../comparator.c: 34:     CM1CON0bits.HYS=1;
-[e = . . _CM1CON0bits 0 1 -> -> 1 `i `uc ]
+[; ;../comparator.c: 34:     CM1NCHbits.NCH=0b011;
+[e = . . _CM1NCHbits 0 0 -> -> 3 `i `uc ]
 "35
-[; ;../comparator.c: 35:     CM1CON0bits.POL=1;
-[e = . . _CM1CON0bits 0 3 -> -> 1 `i `uc ]
+[; ;../comparator.c: 35:     CM1PCHbits.PCH=0b101;
+[e = . . _CM1PCHbits 0 0 -> -> 5 `i `uc ]
 "36
-[; ;../comparator.c: 36:     CM1CON1bits.INTP=1;
-[e = . . _CM1CON1bits 0 1 -> -> 1 `i `uc ]
+[; ;../comparator.c: 36:     CM1CON0bits.HYS=1;
+[e = . . _CM1CON0bits 0 1 -> -> 1 `i `uc ]
 "37
-[; ;../comparator.c: 37:     CM1CON1bits.INTN=1;
-[e = . . _CM1CON1bits 0 0 -> -> 1 `i `uc ]
+[; ;../comparator.c: 37:     CM1CON0bits.POL=1;
+[e = . . _CM1CON0bits 0 3 -> -> 1 `i `uc ]
 "38
-[; ;../comparator.c: 38:     DAC_init();
-[e ( _DAC_init ..  ]
+[; ;../comparator.c: 38:     CM1CON1bits.INTP=1;
+[e = . . _CM1CON1bits 0 1 -> -> 1 `i `uc ]
 "39
-[; ;../comparator.c: 39:     CM1CON0bits.EN=1;
-[e = . . _CM1CON0bits 0 6 -> -> 1 `i `uc ]
+[; ;../comparator.c: 39:     CM1CON1bits.INTN=1;
+[e = . . _CM1CON1bits 0 0 -> -> 1 `i `uc ]
 "40
-[; ;../comparator.c: 40: }
+[; ;../comparator.c: 40:     DAC_init();
+[e ( _DAC_init ..  ]
+"41
+[; ;../comparator.c: 41:     CM1CON0bits.EN=1;
+[e = . . _CM1CON0bits 0 6 -> -> 1 `i `uc ]
+"42
+[; ;../comparator.c: 42: }
 [e :UE 2017 ]
 }

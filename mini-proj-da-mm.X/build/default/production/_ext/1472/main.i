@@ -24488,6 +24488,7 @@ void main(void) {
 
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    unsigned int daily_correction = 0;
 
 
     char datestr[50];
@@ -24516,15 +24517,10 @@ void main(void) {
 
         if (minute == 60) {
             hour++;
+            LEDarray_disp_bin(hour);
             minute = 0;
             if (hour == 24){
                 hour = 0;
-                day++;
-                month_day++;
-                check_month(&month, &month_day, &year);
-                if (day == 7){day = 0;}
-                LCD_clear();
-
 
 
                 if (daylight_end_min >= daylight_start_min) {
@@ -24532,12 +24528,33 @@ void main(void) {
                     current_day_hour = daylight_end_hour - daylight_start_hour;}
                 else {
                     current_day_min = daylight_end_min + (60-daylight_start_min);
-                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;
+                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;}
+
+
+                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)/60;
+                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)%60;
+
+
+                if (calculated_solar_noon_hour >= 12 && calculated_solar_noon_min != 0 && daily_correction == 0) {
+                    daily_correction = 1;
+                    LATDbits.LATD7=1;
+                    hour = 23 - (calculated_solar_noon_hour - 12);
+                    minute = 60 - calculated_solar_noon_min;
                 }
+                else if (calculated_solar_noon_hour < 12){
+                   hour = 11 - calculated_solar_noon_hour;
+                   minute = 60 - calculated_solar_noon_min;
+                }
+                else if (hour == 0 && daily_correction == 1){daily_correction = 0;
+                    LATDbits.LATD7=0;}
 
-                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
-                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
-
+                if (daily_correction != 1){
+                day++;
+                month_day++;
+                check_month(&month, &month_day, &year);
+                if (day == 7){day = 0;}
+                LCD_clear();
+                }
 
             }
             LEDarray_disp_bin(hour);
@@ -24550,15 +24567,13 @@ void main(void) {
                 LATHbits.LATH3=1;
                 OneAmToFiveAmFlag = 0;}
 
-
         if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}
 
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
             hour--;
-            LEDarray_disp_bin(hour);
             changed = 1;
         }
-        else if (day == 1 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        else if (day == 0 && month == 10 && hour == 4 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
 
     }
 }
