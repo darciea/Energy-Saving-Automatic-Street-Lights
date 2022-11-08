@@ -24464,17 +24464,6 @@ void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 14 "../main.c" 2
 
-# 1 "../ADC.h" 1
-
-
-
-
-
-
-
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 15 "../main.c" 2
 
 # 1 "../MonthTracker.h" 1
 # 15 "../MonthTracker.h"
@@ -24495,8 +24484,12 @@ void main(void) {
     unsigned int month = 2;
     unsigned int month_day = 27;
     unsigned short year = 2020;
+
+
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+
+
     char datestr[50];
     char yearstr[20];
 
@@ -24507,7 +24500,7 @@ void main(void) {
     LEDarray_init();
     Comp1_init();
     Light_init();
-    ADC_init();
+
     LCD_Init();
 
     while(1){
@@ -24523,6 +24516,7 @@ void main(void) {
 
         if (minute == 60) {
             hour++;
+            LEDarray_disp_bin(hour);
             minute = 0;
             if (hour == 24){
                 hour = 0;
@@ -24555,9 +24549,6 @@ void main(void) {
         if (hour == 5 && OneAmToFiveAmFlag == 1 && CM1CON0bits.OUT == 1){
                 LATHbits.LATH3=1;
                 OneAmToFiveAmFlag = 0;}
-
-        LEDarray_disp_bin(hour);
-
 
 
         if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}

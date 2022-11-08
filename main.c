@@ -12,7 +12,7 @@
 #include "interrupts.h"
 #include "comparator.h"
 #include "timers.h"
-#include "ADC.h"
+//#include "ADC.h"
 #include "MonthTracker.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -28,8 +28,12 @@ void main(void) {
     unsigned int month = 2; //
     unsigned int month_day = 27;
     unsigned short year = 2020;
+    
+    //flags to ensure changes aren't repeated and program accounts for uncommon eventualities 
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    
+    //space made for strings to show variables on the LCD screen
     char datestr[50];
     char yearstr[20];
     
@@ -40,7 +44,7 @@ void main(void) {
     LEDarray_init();
     Comp1_init();
     Light_init();
-    ADC_init();
+    //ADC_init();
     LCD_Init();
     
     while(1){
@@ -56,6 +60,7 @@ void main(void) {
         
         if (minute == 60) { //trigger every time minute variable hits 60
             hour++; // increment hour by 1
+            LEDarray_disp_bin(hour); //display hour variable on LED array
             minute = 0; //reset minute to 0
             if (hour == 24){ //at the end of the day
                 hour = 0; //reset for midnight
@@ -89,10 +94,7 @@ void main(void) {
                 LATHbits.LATH3=1; // to trigger the LED coming back on
                 OneAmToFiveAmFlag = 0;} // and reset the flag so that it doesn't get turned on continuously
         
-        LEDarray_disp_bin(hour); //display hour variable on LED array
-        
-         
-        
+ 
         if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;} //when daylight savings time starts, add one hour
         
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) { //when daylight savings time ends, minus 1 hour
