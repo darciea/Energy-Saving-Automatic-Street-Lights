@@ -24464,17 +24464,6 @@ void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 14 "../main.c" 2
 
-# 1 "../ADC.h" 1
-
-
-
-
-
-
-
-void ADC_init(void);
-unsigned int ADC_getval(void);
-# 15 "../main.c" 2
 
 # 1 "../MonthTracker.h" 1
 # 15 "../MonthTracker.h"
@@ -24491,12 +24480,18 @@ void check_month(unsigned int *month, unsigned int *month_day, unsigned int *yea
 void main(void) {
 
 
-    unsigned int day = 2;
-    unsigned int month = 2;
-    unsigned int month_day = 28;
+    unsigned int day = 6;
+    unsigned int month = 10;
+    unsigned int month_day = 26;
     unsigned short year = 2022;
+    unsigned int isDST = 1;
+
+
     unsigned int changed = 0;
     unsigned int OneAmToFiveAmFlag = 0;
+    unsigned int daily_correction = 0;
+
+
     char datestr[50];
     char yearstr[20];
 
@@ -24507,31 +24502,26 @@ void main(void) {
     LEDarray_init();
     Comp1_init();
     Light_init();
-    ADC_init();
+
     LCD_Init();
 
     while(1){
 
 
         LCD_setline(1);
-        sprintf(datestr, "%d / %d", month_day, month, year);
+        sprintf(datestr, "%d-%d-%d     %d", month_day, month, year, day);
         LCD_sendstring(datestr);
         LCD_setline(2);
-        sprintf(yearstr, "%d / %d", day, year);
+        sprintf(yearstr, "%d:%d", hour, minute);
         LCD_sendstring(yearstr);
-
+        LEDarray_disp_bin(hour);
 
         if (minute == 60) {
             hour++;
+            LEDarray_disp_bin(hour);
             minute = 0;
             if (hour == 24){
                 hour = 0;
-                day++;
-                month_day++;
-                check_month(&month, &month_day, &year);
-                if (day == 7){day = 0;}
-                LCD_clear();
-
 
 
                 if (daylight_end_min >= daylight_start_min) {
@@ -24539,14 +24529,36 @@ void main(void) {
                     current_day_hour = daylight_end_hour - daylight_start_hour;}
                 else {
                     current_day_min = daylight_end_min + (60-daylight_start_min);
-                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;
+                    current_day_hour = daylight_end_hour - daylight_start_hour - 1;}
+
+
+                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)/60;
+                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)%60;
+
+
+                if (calculated_solar_noon_hour >= (12 + isDST) && calculated_solar_noon_min != 0 && daily_correction == 0) {
+                    daily_correction = 1;
+
+                    hour = 23 - (calculated_solar_noon_hour - 12 - isDST);
+                    minute = 60 - calculated_solar_noon_min;
                 }
+                else if (calculated_solar_noon_hour < (12 + isDST)){
+                   hour = 11 + isDST - calculated_solar_noon_hour;
+                   minute = 60 - calculated_solar_noon_min;
+                }
+                else if (hour == 0 && daily_correction == 1){daily_correction = 0;
 
-                calculated_solar_noon_hour = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)/60;
-                calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + current_day_hour*60 + current_day_min)%60;
-
+                }
+                if (daily_correction != 1){
+                day++;
+                month_day++;
+                check_month(&month, &month_day, &year);
+                if (day == 7){day = 0;}
+                }
+                LCD_clear();
 
             }
+            LEDarray_disp_bin(hour);
         }
 
         if (hour >= 1 && hour < 5){
@@ -24556,17 +24568,14 @@ void main(void) {
                 LATHbits.LATH3=1;
                 OneAmToFiveAmFlag = 0;}
 
-        LEDarray_disp_bin(hour);
-
-
-
-        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}
+        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++; isDST = 1;}
 
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
             hour--;
             changed = 1;
+            isDST = 0;
         }
-        else if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
+        else if (day == 0 && month == 10 && hour == 4 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
 
     }
 }

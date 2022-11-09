@@ -24253,6 +24253,8 @@ void Light_init(void)
 {
    LATHbits.LATH3=1;
    TRISHbits.TRISH3=0;
+   LATDbits.LATD7=0;
+   TRISDbits.TRISD7=0;
 }
 
 void DAC_init(void)

@@ -11,13 +11,13 @@
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\mini-proj-da-mm.X.production.hex)
   8h - C9h		(dist/default/production\mini-proj-da-mm.X.production.hex)
-  E00h - 2861h		(dist/default/production\mini-proj-da-mm.X.production.hex)
+  E00h - 2879h		(dist/default/production\mini-proj-da-mm.X.production.hex)
   200000h - 20000Fh		(dist/default/production\mini-proj-da-mm.X.production.hex)
   300000h - 30000Bh		(dist/default/production\mini-proj-da-mm.X.production.hex)
  Unused ranges:
   4h - 7h
   CAh - DFFh
-  2862h - 1FFFFFh
+  287Ah - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -463,7 +463,8 @@
 00002830 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002840 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00002850 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00002860 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+00002860 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002870 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

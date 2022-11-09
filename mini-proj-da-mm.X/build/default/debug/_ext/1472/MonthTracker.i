@@ -24271,15 +24271,12 @@ unsigned char __t3rd16on(void);
                 *month_day = 1;
                 (*month)++;
             }
+        }
         else if (*month == 2 && leap_year == 0){
             if (*month_day == 29){
                 *month_day = 1;
                 (*month)++;
                 }
-        }
-
-
-
         }
 
 

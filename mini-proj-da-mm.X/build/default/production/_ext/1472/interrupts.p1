@@ -2068,16 +2068,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "11 ../interrupts.h
-[; ;../interrupts.h: 11: unsigned int hour = 21;
+[; ;../interrupts.h: 11: unsigned int hour = 0;
 [v _hour `ui ~T0 @X0 1 e ]
 [i _hour
--> -> 21 `i `ui
+-> -> 0 `i `ui
 ]
 "12
-[; ;../interrupts.h: 12: unsigned int minute = 15;
+[; ;../interrupts.h: 12: unsigned int minute = 0;
 [v _minute `ui ~T0 @X0 1 e ]
 [i _minute
--> -> 15 `i `ui
+-> -> 0 `i `ui
 ]
 "14
 [; ;../interrupts.h: 14: unsigned int current_day_hour = 0;

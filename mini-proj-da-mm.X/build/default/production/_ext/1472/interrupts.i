@@ -24242,8 +24242,8 @@ unsigned char __t3rd16on(void);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 21;
-unsigned int minute = 15;
+unsigned int hour = 0;
+unsigned int minute = 0;
 
 unsigned int current_day_hour = 0;
 unsigned int current_day_min = 0;

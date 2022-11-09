@@ -24426,8 +24426,8 @@ void LDR2String(char *val, unsigned int number);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
-unsigned int hour = 21;
-unsigned int minute = 15;
+unsigned int hour = 0;
+unsigned int minute = 0;
 
 unsigned int current_day_hour = 0;
 unsigned int current_day_min = 0;
@@ -24481,9 +24481,10 @@ void main(void) {
 
 
     unsigned int day = 6;
-    unsigned int month = 3;
+    unsigned int month = 10;
     unsigned int month_day = 26;
     unsigned short year = 2022;
+    unsigned int isDST = 1;
 
 
     unsigned int changed = 0;
@@ -24535,26 +24536,26 @@ void main(void) {
                 calculated_solar_noon_min = (daylight_start_hour*60 + daylight_start_min + (current_day_hour*60 + current_day_min)/2)%60;
 
 
-                if (calculated_solar_noon_hour >= 12 && calculated_solar_noon_min != 0 && daily_correction == 0) {
+                if (calculated_solar_noon_hour >= (12 + isDST) && calculated_solar_noon_min != 0 && daily_correction == 0) {
                     daily_correction = 1;
-                    LATDbits.LATD7=1;
-                    hour = 23 - (calculated_solar_noon_hour - 12);
+
+                    hour = 23 - (calculated_solar_noon_hour - 12 - isDST);
                     minute = 60 - calculated_solar_noon_min;
                 }
-                else if (calculated_solar_noon_hour < 12){
-                   hour = 11 - calculated_solar_noon_hour;
+                else if (calculated_solar_noon_hour < (12 + isDST)){
+                   hour = 11 + isDST - calculated_solar_noon_hour;
                    minute = 60 - calculated_solar_noon_min;
                 }
                 else if (hour == 0 && daily_correction == 1){daily_correction = 0;
-                    LATDbits.LATD7=0;}
 
+                }
                 if (daily_correction != 1){
                 day++;
                 month_day++;
                 check_month(&month, &month_day, &year);
                 if (day == 7){day = 0;}
-                LCD_clear();
                 }
+                LCD_clear();
 
             }
             LEDarray_disp_bin(hour);
@@ -24567,11 +24568,12 @@ void main(void) {
                 LATHbits.LATH3=1;
                 OneAmToFiveAmFlag = 0;}
 
-        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++;}
+        if (day == 0 && month == 3 && hour == 1 && minute == 0 && month_day >=25 && month_day <= 31) {hour++; isDST = 1;}
 
         if (day == 0 && month == 10 && hour == 2 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 0) {
             hour--;
             changed = 1;
+            isDST = 0;
         }
         else if (day == 0 && month == 10 && hour == 4 && minute == 0 && month_day >=25 && month_day <= 31 && changed == 1){changed = 0;}
 

@@ -1,7 +1,9 @@
 # Mini project - Energy saving automatic outside light
 
 ## Explanation of our work
-To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year in the main.c file, and the hour and minute should be set in the interrupts.h file.
+To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
+
+This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changed back, exiting DST in October.
 
 **Key program files**
 
@@ -9,9 +11,11 @@ To correctly start the program, you must first manually initialise the day (0 = 
 
 Within this file we have intitialised the date and all functions connected to hardware that we are using, e.g. the LED, the LDR, the LCD (optional) and others. We have decided to make our timer overflow every 'minute' (whether this 'minute' is in testing mode or real-time depends on the value we set for the timer overflow, which will be explained in the timers.c/h file'. Every time 60 minutes (i.e. an 'hour'), the minutes reset and the hours are incremented and displayed on the LED array. 
 
-Once we reach the end of the day (24 hours), we will increment the days, both the day of the week (using 0 - 6 as representation) and the day of the month - the relation of this day to the rest of the year will be explained in the 'MonthTracker.c/h file'. Once the end of the week is reached, the week is reset. 
+Once we reach the end of the day (24 hours), we will increment the days, both the day of the week (using 0 - 6 as representation) and the day of the month - the relation of this day to the rest of the year will be explained in the 'MonthTracker.c/h file'. Once the end of the week is reached, the day of the week is reset. 
 
-Also at the end of every day, the length of daylight is calculated using the dawn and dusk triggered by the interrupt. This is then used to calculate the time at which solar noon occurred. Using the solar noon allows calibration of the timer with the sun.
+Also at the end of every day (at midnight), the length of daylight is calculated using the dawn and dusk triggered by the interrupt. This is then used to calculate the time at which solar noon occurred. Using the solar noon allows calibration of the timer with the sun.
+
+In theory solar noon should occur at 12:00 every day (and 13:00 during DST). At midnight the time at which the timer was at during measured solar noon is calculated. If this is not 12:00 (or 13:00 during DST), the timer is adjusted accordingly. If the calculated solar noon is after 12:00, the clock was runnning slow, so the difference is just added onto the current time. If the calculated solar noon is before 12:00, the clock was running fast, and so it needs to jump back by the difference; first, 'daily correction time' is initiated, which inhibits the date from increasing. Then the timer is pushed back by the required amount of time, and when this time is over (ie the clock reached midnight again), 'daily correction time' is turned off and the date increases.
 
 Code is then implemented to ensure that between the hours of 1am and 5am, the LED is turned off, regardless of whether there is ambient light or not. As 5am occurs, the code checks that it is still dark (i.e. the LED is required) before turning the light on, so that the light is not turned on if dawn occurs before 5am and the streetlight is not needed.
 
