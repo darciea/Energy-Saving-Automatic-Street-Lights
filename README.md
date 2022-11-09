@@ -3,6 +3,8 @@
 ## Explanation of our work
 To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
 
+Demonstration video: https://youtu.be/prrxO2kyVkE 
+
 This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changing due to entering or exiting DST.
 
 **Key program files**
@@ -79,7 +81,7 @@ No clock is perfect, they can all run slightly fast/slow and can by influenced b
 http://wordpress.mrreid.org/2010/10/31/why-change-the-clocks/
 
 
-Demonstration video: https://youtu.be/prrxO2kyVkE 
+
 
 
 
