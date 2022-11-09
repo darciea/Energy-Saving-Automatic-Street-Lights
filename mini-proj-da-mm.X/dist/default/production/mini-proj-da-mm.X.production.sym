@@ -501,7 +501,7 @@ text0 E36 2879 CODE E36 0
 %locals
 dist/default/production\mini-proj-da-mm.X.production.o
 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\Matti\AppData\Local\Temp\xcAsgdk.s
+C:\Users\Matti\AppData\Local\Temp\xcAshuk.s
 10849 2772 0 CODE 0
 10851 2772 0 CODE 0
 10854 2772 0 CODE 0
@@ -995,7 +995,7 @@ C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
 23 284A 0 CODE 0
 24 2852 0 CODE 0
 25 2854 0 CODE 0
-C:\Users\Matti\AppData\Local\Temp\xcAsgdk.s
+C:\Users\Matti\AppData\Local\Temp\xcAshuk.s
 18071 8 0 CODE 0
 ../interrupts.c
 23 8 0 CODE 0

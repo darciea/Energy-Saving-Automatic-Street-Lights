@@ -24480,9 +24480,9 @@ void check_month(unsigned int *month, unsigned int *month_day, unsigned int *yea
 void main(void) {
 
 
-    unsigned int day = 6;
+    unsigned int day = 4;
     unsigned int month = 10;
-    unsigned int month_day = 26;
+    unsigned int month_day = 27;
     unsigned short year = 2022;
     unsigned int isDST = 1;
 

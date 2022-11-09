@@ -79,6 +79,9 @@ No clock is perfect, they can all run slightly fast/slow and can by influenced b
 http://wordpress.mrreid.org/2010/10/31/why-change-the-clocks/
 
 
+Demonstration video: https://youtu.be/prrxO2kyVkE 
+
+
 
 
 

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Wed Nov 09 01:22:57 2022
+                                                                                               Wed Nov 09 19:32:02 2022
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F67K40
@@ -737,11 +737,11 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    718   000E36                     _main:
    719                           	callstack 22
    720   000E36                     
-   721                           ;../main.c: 27:     unsigned int day = 6;
+   721                           ;../main.c: 27:     unsigned int day = 4;
    722   000E36  0E00               	movlw	0
    723   000E38  0100               	movlb	0	; () banked
    724   000E3A  6FCE               	movwf	(main@day+1)& (0+255),b
-   725   000E3C  0E06               	movlw	6
+   725   000E3C  0E04               	movlw	4
    726   000E3E  6FCD               	movwf	main@day& (0+255),b
    727                           
    728                           ;../main.c: 28:     unsigned int month = 10;
@@ -750,10 +750,10 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
    731   000E44  0E0A               	movlw	10
    732   000E46  6FCF               	movwf	main@month& (0+255),b
    733                           
-   734                           ;../main.c: 29:     unsigned int month_day = 26;
+   734                           ;../main.c: 29:     unsigned int month_day = 27;
    735   000E48  0E00               	movlw	0
    736   000E4A  6FD2               	movwf	(main@month_day+1)& (0+255),b
-   737   000E4C  0E1A               	movlw	26
+   737   000E4C  0E1B               	movlw	27
    738   000E4E  6FD1               	movwf	main@month_day& (0+255),b
    739                           
    740                           ;../main.c: 30:     unsigned short year = 2022;
@@ -6832,7 +6832,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Wed Nov 09 01:22:57 2022
+Symbol Table                                                                                   Wed Nov 09 19:32:02 2022
 
                         l50 2216                          l42 2806                          l51 2218  
                         l60 2284                          l52 222C                          l61 2286  

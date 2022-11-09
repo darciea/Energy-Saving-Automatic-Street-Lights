@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
   -cn -h+dist/default/production\mini-proj-da-mm.X.production.sym \
   --cmf=dist/default/production\mini-proj-da-mm.X.production.cmf -z \
-  -Q18F67K40 -oC:\Users\Matti\AppData\Local\Temp\xcAsgdk.4 \
+  -Q18F67K40 -oC:\Users\Matti\AppData\Local\Temp\xcAshuk.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/mini-proj-da-mm.X.production.map \
-  --md=C:\Users\Matti\AppData\Local\Temp\xcAsgdk.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\Matti\AppData\Local\Temp\xcAshuk.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Matti\AppData\Local\Temp\xcAsgdk.o \
+  C:\Users\Matti\AppData\Local\Temp\xcAshuk.o \
   dist/default/production\mini-proj-da-mm.X.production.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Matti\AppData\Local\Temp\xcAsgdk.o
+C:\Users\Matti\AppData\Local\Temp\xcAshuk.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 C6       C6        4        4       0

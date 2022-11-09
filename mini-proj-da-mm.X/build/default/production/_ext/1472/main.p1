@@ -2124,17 +2124,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "27
-[; ;../main.c: 27:     unsigned int day = 6;
+[; ;../main.c: 27:     unsigned int day = 4;
 [v _day `ui ~T0 @X0 1 a ]
-[e = _day -> -> 6 `i `ui ]
+[e = _day -> -> 4 `i `ui ]
 "28
 [; ;../main.c: 28:     unsigned int month = 10;
 [v _month `ui ~T0 @X0 1 a ]
 [e = _month -> -> 10 `i `ui ]
 "29
-[; ;../main.c: 29:     unsigned int month_day = 26;
+[; ;../main.c: 29:     unsigned int month_day = 27;
 [v _month_day `ui ~T0 @X0 1 a ]
-[e = _month_day -> -> 26 `i `ui ]
+[e = _month_day -> -> 27 `i `ui ]
 "30
 [; ;../main.c: 30:     unsigned short year = 2022;
 [v _year `us ~T0 @X0 1 a ]

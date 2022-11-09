@@ -24,9 +24,9 @@
 void main(void) {
    
     //manually initialise variables for when program starts
-    unsigned int day = 6; //(0 = sunday,6 = sat)
+    unsigned int day = 4; //(0 = sunday,6 = sat)
     unsigned int month = 10; //
-    unsigned int month_day = 26;
+    unsigned int month_day = 27;
     unsigned short year = 2022;
     unsigned int isDST = 1; //define whether the clock starts inside (1) or outside (0) of DST
     
