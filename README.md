@@ -1,5 +1,29 @@
 # Mini project - Energy saving automatic outside light
 
+## Learning outcomes
+
+The principal learning objectives for this project are:
+
+- Implement a working microprocessor based system to achieve a more complex real world task
+- Develop your ability to independently plan, organise and structure your code 
+- Improve your grasp of the C language and writing your own functions
+
+## Brief
+
+Outside lights that respond to ambient light levels are commonplace (i.e. street lights, porch lights, garden lights etc). These types of lights switch on at dusk and then turn off at dawn. However, energy and money can be saved if these lights are switched off during the small hours of the morning (for example, between 1am and 5am), when there are very few people around. Many councils in the UK have implemented/trialled this idea for street lights (https://www.bbc.co.uk/news/uk-england-derbyshire-16811386). Your task is to use the knowledge of microcontrollers and hardware that you have gained in labs 1-3 from this module to develop a fully automated solution.
+
+## Specification
+Design and program a device that meets the following requirements:
+
+1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
+1. Displays the current hour of day on the LED array in binary
+1. Turns the light off between approx. 1am and 5am
+1. Adjusts for daylight savings time
+1. Maintain synchronicity with the sun indefinitely
+1. Be fully automatic (requires zero maintenance after installation)
+
+Please use this GitHub repo to manage your software development and submit your mini project code.
+
 ## Explanation of our work
 To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
 
@@ -43,32 +67,6 @@ Here we have declared global variables that are changed in the interrupt and var
 **"MonthTracker.c/h"**
 
 Due to the code iterating the dates being quite bulky, they have been stored in another file and put into a function where arguments are passed. In order to avoid the use of global variables, this function utilises pointers, receiving the address of the day of the month, the month and the year and changing the pointers so that multiple variables can be adjusted as necessary. This function checks which month it is and resets the date of the month according to how many days that month should have e.g. October has 31 days, so when it is incremented to 32, the date is reset to the first and the month moves on to the next one. In December, the year is then incremented following the end of the month. There is also a flag introduced to check whether it is a leap year (if the year is divisible by 4, except in years that are divisible by 100, in which case the year is checked for if it is divisible by 400) and if it is a leap year February has 29 days, otherwise it has 28.
-
-
-
-## Learning outcomes
-
-The principal learning objectives for this project are:
-
-- Implement a working microprocessor based system to achieve a more complex real world task
-- Develop your ability to independently plan, organise and structure your code 
-- Improve your grasp of the C language and writing your own functions
-
-## Brief
-
-Outside lights that respond to ambient light levels are commonplace (i.e. street lights, porch lights, garden lights etc). These types of lights switch on at dusk and then turn off at dawn. However, energy and money can be saved if these lights are switched off during the small hours of the morning (for example, between 1am and 5am), when there are very few people around. Many councils in the UK have implemented/trialled this idea for street lights (https://www.bbc.co.uk/news/uk-england-derbyshire-16811386). Your task is to use the knowledge of microcontrollers and hardware that you have gained in labs 1-3 from this module to develop a fully automated solution.
-
-## Specification
-Design and program a device that meets the following requirements:
-
-1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
-1. Displays the current hour of day on the LED array in binary
-1. Turns the light off between approx. 1am and 5am
-1. Adjusts for daylight savings time
-1. Maintain synchronicity with the sun indefinitely
-1. Be fully automatic (requires zero maintenance after installation)
-
-Please use this GitHub repo to manage your software development and submit your mini project code.
 
 ## Supplementary information and help
 At first the task may seem quite straightforward but there are several points that often prove more tricky. The first is how to test code during development? You could test in real world conditions but you would be limited to one test cycle per day and this would severely slow down your development and debugging progress. To get around this you could implement a "testing mode" and pretend that a day lasts 24 seconds. This could be done using a #define directive to switch between "normal" and "testing" modes for your code.
