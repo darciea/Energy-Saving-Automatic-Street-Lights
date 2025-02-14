@@ -22,12 +22,13 @@ Design and program a device that meets the following requirements:
 1. Maintain synchronicity with the sun indefinitely
 1. Be fully automatic (requires zero maintenance after installation)
 
-## Explanation of our work
-To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
+## Our solution
 
-Demonstration video: https://youtu.be/prrxO2kyVkE 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/prrxO2kyVkE/0.jpg)](https://www.youtube.com/watch?v=prrxO2kyVkE)
 
 This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changing due to entering or exiting DST.
+
+To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
 
 ## Key program files
 
