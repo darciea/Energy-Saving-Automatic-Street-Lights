@@ -5,8 +5,8 @@
 The principal learning objectives for this project are:
 
 - Implement a working microprocessor based system to achieve a more complex real world task
-- Develop your ability to independently plan, organise and structure your code 
-- Improve your grasp of the C language and writing your own functions
+- Develop ability to independently plan, organise and structure your code 
+- Improve grasp of the C language and writing your own functions
 
 ## Brief
 
@@ -22,8 +22,6 @@ Design and program a device that meets the following requirements:
 1. Maintain synchronicity with the sun indefinitely
 1. Be fully automatic (requires zero maintenance after installation)
 
-Please use this GitHub repo to manage your software development and submit your mini project code.
-
 ## Explanation of our work
 To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
 
@@ -31,7 +29,7 @@ Demonstration video: https://youtu.be/prrxO2kyVkE
 
 This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changing due to entering or exiting DST.
 
-**Key program files**
+## Key program files
 
 **"Main.c"**
 
@@ -68,15 +66,6 @@ Here we have declared global variables that are changed in the interrupt and var
 
 Due to the code iterating the dates being quite bulky, they have been stored in another file and put into a function where arguments are passed. In order to avoid the use of global variables, this function utilises pointers, receiving the address of the day of the month, the month and the year and changing the pointers so that multiple variables can be adjusted as necessary. This function checks which month it is and resets the date of the month according to how many days that month should have e.g. October has 31 days, so when it is incremented to 32, the date is reset to the first and the month moves on to the next one. In December, the year is then incremented following the end of the month. There is also a flag introduced to check whether it is a leap year (if the year is divisible by 4, except in years that are divisible by 100, in which case the year is checked for if it is divisible by 400) and if it is a leap year February has 29 days, otherwise it has 28.
 
-## Supplementary information and help
-At first the task may seem quite straightforward but there are several points that often prove more tricky. The first is how to test code during development? You could test in real world conditions but you would be limited to one test cycle per day and this would severely slow down your development and debugging progress. To get around this you could implement a "testing mode" and pretend that a day lasts 24 seconds. This could be done using a #define directive to switch between "normal" and "testing" modes for your code.
-
-Adjusting for daylight savings time is not too tricky. The clocks always change (in the UK) on the last Sunday in March (they go forward an hour) and the last Sunday in October (they go back an hour). One method of achieving this is to initialise what day it is when device is first switched on (using manual input) and then keep track of the days that pass and what the day of the week it is. Another method might be to automatically figure out what time of year it is (see below). Also don't forget about leap years! 
-
-No clock is perfect, they can all run slightly fast/slow and can by influenced be external factors such as temperature. Ultimately this will result in drift over time and eventually the time will drift so far out of sync with real time that it is meaningless. For the purposes of our device the main requirement is that it remains in sync with the sun. You could use light from the sun to keep your clock in sync. Although the length of daylight varies considerably during the year, the midpoint between dusk and dawn only varies by a few minutes. This is termed solar midnight approx. 12am or solar noon approx. 12pm. One method of staying in sync with the sun is to use the LDR and record/calculate when these times occur and adjust your clock accordingly. The length of daylight also tells us information about what time of year it is and can be used to help us know when to adjust for daylight savings time.
-
-![Day length](gifs/day-length-london.jpg)
-http://wordpress.mrreid.org/2010/10/31/why-change-the-clocks/
 
 
 
